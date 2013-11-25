@@ -1,0 +1,81 @@
+// Basic Body Styles //
+*{
+  @include box-sizing(border-box);
+}
+body{
+  //background:$cream;
+  //color:$black;
+}
+h1 a{
+  text-decoration:none;
+}
+a{
+  //color:$one;
+  font-weight:bold;
+  @include transition-property(color);
+  @include transition-duration(.3s);
+  &:hover{
+    //color:$two;
+  }
+}
+p{
+  padding-bottom:1.5em;
+  line-height:1.8em;
+}
+footer{
+  //@include smallprint;
+}
+pre{
+  margin:1em;
+  padding: 0 .5em;
+  background:$black;
+}
+code{
+  background:$black;
+  color:$white;
+  font-family:monospace;
+}
+strong{
+  font-weight:bold;
+}
+em{
+  font-style:italic;
+}
+blockquote{
+  padding:5% 10% 0;
+  font-style:italic;
+  p:last-of-type{
+    padding-bottom:0;
+    display:inline;
+  }
+  &:before{
+    color: $grey;
+    content:"“";
+    font-size: 4em;
+    line-height: 0.01em;
+    margin-right: 0.1em;
+    vertical-align: -0.4em;
+  }
+  &:after{
+    color: $grey;
+    content:"”";
+    font-size: 4em;
+    line-height: 0.01em;
+    margin-right: 0.1em;
+    vertical-align: -0.5em;
+  }
+  em{
+    font-weight:bold;
+  }
+}
+.credit{
+  display:block;
+  width:100%;
+  font-weight:bold;
+  font-size:.8em;
+  text-align:right;
+  padding:0 10% 5%;
+  &:before{
+    content:"– ";
+  }
+}

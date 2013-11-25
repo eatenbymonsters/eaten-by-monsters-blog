@@ -1,0 +1,45 @@
+// Colours //
+$black: #505050;
+$white:#ffffff;
+$grey: #cccccc;
+// Opacities
+$grey-op:rgba(221,221,221,.5);
+
+
+// Media Query Mixins //
+@mixin breakpoint($point) {
+  @if $point == papa-bear {
+    @media (min-width: 1280px) { @content; }
+  }
+  @else if $point == mama-bear {
+    @media (max-width: 650px) { @content; }
+  }
+  @else if $point == baby-bear {
+    @media (max-width: 350px)  { @content; }
+  }
+}
+
+// Sizes //
+html{
+  font-size:14px;
+  @include breakpoint(papa-bear) { font-size: 24px; }
+  @include breakpoint(mama-bear) { font-size: 12px; }
+  @include breakpoint(baby-bear) { font-size: 10px; }
+}
+
+// Typefaces, weights, & styles //
+// Icon Font
+@font-face {
+	font-family: 'icons';
+	src:url('fonts/icons.eot');
+	src:url('fonts/icons.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icons.woff') format('woff'),
+		url('fonts/icons.ttf') format('truetype'),
+		url('fonts/icons.svg#icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+// Fonts
+
+// Misc Vars
+

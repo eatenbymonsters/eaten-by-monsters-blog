@@ -1,0 +1,50 @@
+// Test CSS //
+body{
+	margin:1em;
+}
+h1{
+	font-size:2em;
+}
+h2, h3, h4, h5, h6{
+	font-size:1.5em;
+}
+header{
+	margin-bottom:50px;
+}
+#access, #foot-access{
+	background:#ddd;
+}
+#access li, #foot-access li{
+	display:inline;
+}
+.main-content{
+	float:left;
+	width:600px;
+	margin-right:1em;
+	overflow:hidden;
+}
+.post{
+	margin-bottom:50px;
+	padding:1em;
+	background:#ddd;
+}
+#secondary{
+	float:left;
+	width:200px;
+	margin-right:1em;
+	background:#ddd;
+}
+#tertiary{
+	float:left;
+	width:200px;
+	background:#ddd;
+}
+.widget{
+	margin:1em 0;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #fff;
+}
+footer{
+	clear:both;
+	margin-bottom:50px;
+}
