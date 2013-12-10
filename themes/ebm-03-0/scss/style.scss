@@ -17,12 +17,16 @@ Utilities
   Clearfix
   Assistive Text
   H5BP Styles
-Global Styles
+Declarations
   Colours
-  Media Query Mixins
+  Fonts & type families
+  Media Queries
+  Misc. Variables
+Global
+  Base em size
   Typography
-  Misc Vars
-  Basic Body Styles
+Universal
+  Fundamental element styling: em/strong/
 Layout
 Header
 Body
@@ -34,6 +38,7 @@ Credits
 */
 
 @import"utilities";
+@import"declarations";
 @import"global";
 @import"universal";
 @import"layout";
@@ -43,4 +48,4 @@ Credits
 @import"footer";
 @import"print";
 @import"credits";
-@import"test";
+//@import"test";

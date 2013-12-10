@@ -1,12 +1,10 @@
 <?php get_header(); ?>
 
-<h2>This is the ‘home’ template.</h2>
+<?php get_template_part('seasonal'); ?>
 
-<?php get_sidebar(); ?>
+<?php // get_sidebar(); ?>
 
 <div class="main-content clearfix">
-	
-	<h2>This is the ‘home-content’ area.</h2>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -17,7 +15,7 @@
 		<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
 
 		<div class="entry">
-			<?php the_content(); ?>
+			<?php the_excerpt(); ?>
 		</div>
 
 		<div class="postmetadata">
@@ -40,6 +38,6 @@
 
 </div><!-- .main-content -->
 
-<?php get_sidebar("secondary"); ?>
+<?php //get_sidebar("secondary"); ?>
 
 <?php get_footer(); ?>

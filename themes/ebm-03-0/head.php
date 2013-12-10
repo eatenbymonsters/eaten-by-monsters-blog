@@ -39,6 +39,25 @@
 	
 	<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2.min.js"></script>
 	
+	<!-- Typekit JS -->
+  <script type="text/javascript" src="//use.typekit.net/inm7kme.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <!-- Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36292016-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+  <!-- Google+ -->
+  <link href="https://plus.google.com/111879829548102811838" rel="publisher" />
+	
 	<!-- Polyfills -->
 		<!-- Media Queries support for older versions of IE etc. -->
 		<!-- HTML5 shiv -->
@@ -46,8 +65,13 @@
 			<script src="<?php echo get_template_directory_uri(); ?>/js/respond.min.js" type="text/javascript"></script>
 			<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 			<![endif]-->
-			
-	<!-- TYPEKIT: ‘!kit name here!’ -->
 
 	<?php wp_head(); ?>
 </head>
+
+<body<?php //body_class(); ?>>
+	<?php //do_action( 'before' ); ?>
+  
+<!--[if lt IE 7]>
+  <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->

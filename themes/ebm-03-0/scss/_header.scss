@@ -1,1 +1,116 @@
 // Header //
+.main-header{
+  position:relative;
+  border-top:solid $black .22em;
+  border-bottom:solid $black .22em;
+  h1, h3{
+    font-size:3em;
+  }
+  h4{
+    font-size:1.2em;
+  }
+  .blog-tagline{
+    position:absolute;
+    top:2.4em;
+    margin-left:3em;
+  }
+  a{
+    color:$black;
+  }
+}
+.site-title{
+  padding:0 0 1em 1em;
+  width:50%;
+  float:left;
+}
+// Links
+.header-links{
+  width:50%;
+  float:left;
+  text-align:right;
+  li{
+    display:block;
+    float:right;
+  }
+}
+// Navigation
+.header-nav{
+  position:relative;
+  border-bottom:solid $black .66em;
+  margin:0 0 1em 0;
+  padding:.25em 0;
+  line-height:1em;
+  a{
+    color:$black;
+    &:hover{
+      color:$secondary;
+    }
+  }
+  li{
+    display:block;
+    float:left;
+    margin:0 1em 0 0;
+  }
+}
+// Search Form
+.header-nav .searchform{
+  float:right;
+  label{
+    display:none;
+  }
+  input{
+    display:block;
+    float:left;
+    &[type=text]{
+      height:2.5em;
+      padding:.3em;
+      margin:0;
+      border:.1em solid $primary;
+      border-right:none;
+    }
+    &[type=submit]{
+      height:2em;
+      font-family:$display;
+      font-size:1em;
+      font-style:italic;
+      letter-spacing:.05em;
+      background:$primary;
+      &:hover{
+        background:$secondary;
+      }
+      color:$cream;
+      padding:.01em 2em;
+      margin:0;
+      border:none;
+    }
+  }
+}
+aside input[type=submit] {
+	font-family:"ltc-bodoni-175", "bodoni", "didot", serif;
+	font-style:italic;
+	letter-spacing:1px;
+	text-transform:lowercase;
+	font-size:18px;
+	background-color: #7FBBC8;
+	padding:2px 10px;
+	width:100%;
+	border:none;
+	clear: both;
+	color: #FFFFF6;
+	cursor: pointer;
+	display: inline-block;
+	margin:0;
+	padding:0px;
+	text-align: center;
+	text-decoration: none;
+	-webkit-transition:background .4s ease;
+	-moz-transition:background .4s ease;
+	-o-transition:background .4s ease;
+	transition:background .4s ease;
+	-webkit-appearance:none;
+	-webkit-border-radius:0; 
+	border-radius:0;
+}
+aside input[type=submit]:hover{
+	background:#FBAE17;
+}

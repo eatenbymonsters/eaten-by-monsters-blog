@@ -1,33 +1,31 @@
 <?php get_template_part('head'); ?>
-<body>
+
+<header class="main-header clearfix">
+  <div class="site-title">
+  	<?php if (is_home()){
+  	  echo"<h1>"
+  	;}else{
+  	  echo"<h3>"
+  	;}?>
+      <a href="/" title="Eaten by Monsters homepage" rel="home">Eaten by Monsters</a>
+  	<?php if (is_home()){
+    	echo"</h1>"
+    ;}else{
+    	echo"</h3>"
+    ;}?>
+  	<h4 class="blog-tagline">Music Blog</h4>
+  </div><!-- .site-title -->
   
-<!--[if lt IE 7]>
-  <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
+  <ul class="header-links">
+    <li class="header-link"><a class="rss-link" title="RSS" href="/feed/" aria-hidden="true" data-icon="&#xe601;">RSS</a></li>
+    <li class="header-link"><a class="twitter-link" title="Twitter" href="http://twitter.com/eatenbymonsters/" aria-hidden="true" data-icon="&#xe602;">Twitter</a></li>
+    <li class="header-link"><a class="soundcloud-link" title="Soundcloud" href="http://soundcloud.com/eaten-by-monsters-blog/" aria-hidden="true" data-icon="&#xe603;">Soundcloud</a></li>
+  </ul><!-- .header-links -->
+</header><!-- .main-header -->
 
-<header id="header">
-  <div id="site-title">
-  	<?php if (is_home())
-  	  {echo "<h1>";}
-  	else
-  	  {echo "<h3>";}
-  	?>
+<nav class="header-nav clearfix" role="navigation">
+	<?php wp_nav_menu(array('theme_location' => 'header_menu')); ?>
+	<?php get_search_form(); ?>
+</nav><!-- .header-nav -->
 
-    <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-
-  				<?php if (is_home())
-  					 {echo "</h1>";}
-  					else
-  					 {echo "</h3>";}
-  				?>
-
-
-  			<p id="tagline">Tagline: <?php bloginfo( 'description' ); ?></p>
-  		</div><!-- #site-title -->
-
-  		<nav id="access" role="navigation">
-  			<?php wp_nav_menu(array('theme_location' => 'primary')); ?>
-  		</nav><!-- #access -->
-  	</header>
-
-  	<div id="main-wrapper" class="clearfix">
+<div class="main-wrapper">

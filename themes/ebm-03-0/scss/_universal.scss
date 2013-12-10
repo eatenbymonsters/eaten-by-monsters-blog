@@ -2,29 +2,6 @@
 *{
   @include box-sizing(border-box);
 }
-body{
-  //background:$cream;
-  //color:$black;
-}
-h1 a{
-  text-decoration:none;
-}
-a{
-  //color:$one;
-  font-weight:bold;
-  @include transition-property(color);
-  @include transition-duration(.3s);
-  &:hover{
-    //color:$two;
-  }
-}
-p{
-  padding-bottom:1.5em;
-  line-height:1.8em;
-}
-footer{
-  //@include smallprint;
-}
 pre{
   margin:1em;
   padding: 0 .5em;
@@ -34,12 +11,6 @@ code{
   background:$black;
   color:$white;
   font-family:monospace;
-}
-strong{
-  font-weight:bold;
-}
-em{
-  font-style:italic;
 }
 blockquote{
   padding:5% 10% 0;
@@ -63,9 +34,6 @@ blockquote{
     line-height: 0.01em;
     margin-right: 0.1em;
     vertical-align: -0.5em;
-  }
-  em{
-    font-weight:bold;
   }
 }
 .credit{
