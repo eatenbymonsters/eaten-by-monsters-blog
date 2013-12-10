@@ -29,6 +29,10 @@ Universal
   Fundamental element styling: em/strong/
 Layout
 Header
+  General
+  Links
+  Navigation
+Search
 Body
 Widgets
 Footer
@@ -43,6 +47,7 @@ Credits
 @import"universal";
 @import"layout";
 @import"header";
+@import"search";
 @import"body";
 @import"widgets";
 @import"footer";

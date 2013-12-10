@@ -27,7 +27,7 @@ a{
   text-decoration:none;
   color:$primary;
   @include transition-property(color);
-  @include transition-duration(.3s);
+  @include transition-duration($dur);
   &:hover{
     color:$secondary;
   }
@@ -35,10 +35,14 @@ a{
 p{
   line-height:1.37em;
 }
-
+input[type=submit], .hide-search-button{
+  cursor:pointer;
+  @include transition-property(background);
+  @include transition-duration($dur);
+}
 // Body
 body{
-  margin:1em;
+  margin:.5em 1em;
   background:$cream;
   color:$black;
 }

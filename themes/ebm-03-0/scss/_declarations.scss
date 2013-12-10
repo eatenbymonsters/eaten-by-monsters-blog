@@ -9,26 +9,30 @@ $grey: #cccccc;
 $grey-op:rgba(221,221,221,.5);
 
 // Fonts & type families
-// Icon Font
-@font-face {
-	font-family: 'icons';
-	src:url('fonts/icons.eot');
-	src:url('fonts/icons.eot?#iefix') format('embedded-opentype'),
-		url('fonts/icons.woff') format('woff'),
-		url('fonts/icons.ttf') format('truetype'),
-		url('fonts/icons.svg#icons') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-[data-icon]:before {
-  font-family: "icons"; /* BYO icon font, mapped smartly */
-  content: attr(data-icon);
-  speak: none; /* Not to be trusted, but hey. */
-}
 // Typekit
 $display:"ltc-bodoni-175", "bodoni", "didot", serif;
 $body:"ff-meta-web-pro", "Helvetica Neue", helvetica, arial, sans-serif;
 $caps:"ff-meta-sc-web-pro", $body;
+// Icon Font
+@font-face {
+	font-family: 'icons';
+	src:url('fonts/icons/icons.eot');
+	src:url('fonts/icons/icons.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icons/icons.woff') format('woff'),
+		url('fonts/icons/icons.ttf') format('truetype'),
+		url('fonts/icons/icons.svg#icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+[data-icon]:before {
+  font-family: "icons", $caps; /* BYO icon font, mapped smartly */
+  content: attr(data-icon);
+  speak: none; /* Not to be trusted, but hey. */
+}
+$twitter-icon:e603;
+$soundcloud-icon:e607;
+$rss-icon:e605;
+$search-icon:e601;
 
 // Media Queries
 @mixin breakpoint($point) {
@@ -43,4 +47,12 @@ $caps:"ff-meta-sc-web-pro", $body;
   }
 }
 
-// Misc. Variables
+// Misc. Variables & Mixin
+@mixin placeholder {
+  &.placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+$dur:.3s;

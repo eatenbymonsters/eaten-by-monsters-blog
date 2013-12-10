@@ -1,15 +1,64 @@
-// Test Alert
+// CONTENTS
+// 1. Test Alert
+// 2. Header Links Focus
+// 3. Lettering JS [disabled]
+// 4. Show/Hide Search
+
+// 01. Test Alert
 //$(document).ready(function(){alert("Main JS ready");});
 
+// 02. Header Links Focus
+$(function(){
+  $('.header-link').hover(
+    function(){
+      $(this).removeClass('link-unfocus');
+      $(this).addClass('link-focus');
+    },
+    function(){
+      $(this).removeClass('link-focus');
+      $(this).addClass('link-unfocus');
+    }
+  );
+});
 
+// 03. Lettering JS
+/*
+$(document).ready(function() {
+    $(".lettering").lettering();
+  });
+*/
+
+// 4. Show/Hide Search
+$(document).ready(function(){
+  
+  var openButton = $('.show-search-button');
+  var closeButton = $('.hide-search-button');
+  var fullForm = $('.searchform');
+  var box = $('.search-wrapper');
+  
+  function toggleSearch(){
+      box.toggleClass('open');
+      fullForm.toggle();
+      openButton.toggle();
+  }
+  
+  openButton.click(function(){
+    toggleSearch();
+  });
+  closeButton.click(function(){
+    toggleSearch();
+  });
+});
+
+/*
 //Archive Slider: Ales
 $(function(){
   $('.archive-slider').hover(
     function(){
-      $(this).find('.ale-meta').stop().animate({bottom:0}, 500 /*, 'easeOutCubic'*/);
+      $(this).find('.ale-meta').stop().animate({bottom:0}, 500 );
     },
     function(){
-      $(this).find('.ale-meta').stop().animate({bottom: ($(this).height()* -1)}, 500 /*, 'easeOutCubic'*/)
+      $(this).find('.ale-meta').stop().animate({bottom: ($(this).height()* -1)}, 500 )
     }
   );
 });
@@ -17,28 +66,16 @@ $(function(){
 $(function(){
   $('.info-slider').hover(
     function(){
-      $(this).find('.info-meta-slide').stop().animate({bottom:0}, 500 /*, 'easeOutCubic'*/);
+      $(this).find('.info-meta-slide').stop().animate({bottom:0}, 500 );
     },
     function(){
-      $(this).find('.info-meta-slide').stop().animate({bottom: ($(this).height()* -1)}, 500 /*, 'easeOutCubic'*/)
+      $(this).find('.info-meta-slide').stop().animate({bottom: ($(this).height()* -1)}, 500 )
     }
   );
 });
+*/
 
-// Homepage Ale Opacity
-$(function(){
-  $('.home-ale-box').hover(
-    function(){
-      $(this).addClass('ale-focus');
-      $(this).find('.home-ale-meta-wrapper').stop().animate({width: ($(this).width()* 2)}, 500);
-    },
-    function(){
-      $(this).removeClass('ale-focus');
-      $(this).find('.home-ale-meta-wrapper').stop().animate({width: ($(this).width())}, 500);
-    }
-  );
-});
-
+/*
 //Backstretch
 jQuery("#big-header").backstretch([
 	"http://www.atlanticbrewery.com/newsite/wp-content/themes/atlantic-theme/img/dry-hops-02.jpg",
@@ -48,7 +85,9 @@ jQuery("#big-header").backstretch([
 	],
 	{duration: 6000, fade: 2000, centeredX: true, centeredY: true}
 );
+*/
 
+/*
 //Sticky Nav
 //The Main Nav
 $(document).ready(function() {  
@@ -86,11 +125,23 @@ $(document).ready(function() {
     		stickyLogo();  
 		});  
 });
+*/
 
-//Lettering
-$(document).ready(function() {
-    $(".lettering").lettering();
-  });
+/*
+// Homepage Ales Opacity
+$(function(){
+  $('.header-link').hover(
+    function(){
+      $(this).addClass('link-focus');
+      $(this).find('.home-ale-meta-wrapper').stop().animate({width: ($(this).width()* 2)}, 500);
+    },
+    function(){
+      $(this).removeClass('ale-focus');
+      $(this).find('.home-ale-meta-wrapper').stop().animate({width: ($(this).width())}, 500);
+    }
+  );
+});
+*/
 
 /*
 //DropNav
@@ -105,6 +156,7 @@ $(document).ready(function(){
 });
 */
 
+/*
 // Foot Menu dividers
 $(function() {
     var lastElement = false;
@@ -115,11 +167,4 @@ $(function() {
             lastElement = $(this);
         }).last().addClass("noborder");
 });
-
-//Nav BG height
-//var navHeight = 0;
-//$(document).ready(function(){
-	//window.navHeight = $('.menu-main-nav-container').height();
-	//$('.nav-bg').css('height','100px');
-	//$('.big-head-nav').css('height','100px');
-//});
+*/

@@ -17,15 +17,30 @@
   </div><!-- .site-title -->
   
   <ul class="header-links">
-    <li class="header-link"><a class="rss-link" title="RSS" href="/feed/" aria-hidden="true" data-icon="&#xe601;">RSS</a></li>
-    <li class="header-link"><a class="twitter-link" title="Twitter" href="http://twitter.com/eatenbymonsters/" aria-hidden="true" data-icon="&#xe602;">Twitter</a></li>
-    <li class="header-link"><a class="soundcloud-link" title="Soundcloud" href="http://soundcloud.com/eaten-by-monsters-blog/" aria-hidden="true" data-icon="&#xe603;">Soundcloud</a></li>
+    <li class="header-link link-unfocus">
+      <a class="rss-link" title="RSS" href="/feed/">
+        <span aria-hidden="true" data-icon="&#xe607;"></span>
+        <span class="visuallyhidden">Soundcloud</span>
+      </a>
+    </li>
+    <li class="header-link link-unfocus">
+      <a class="rss-link" title="RSS" href="/feed/">
+        <span aria-hidden="true" data-icon="&#xe603;"></span>
+        <span class="visuallyhidden">Twitter</span>
+      </a>
+    </li>
+    <li class="header-link link-unfocus">
+      <a class="rss-link" title="RSS" href="/feed/">
+        <span aria-hidden="true" data-icon="&#xe605;"></span>
+        <span class="visuallyhidden">RSS</span>
+      </a>
+    </li>
   </ul><!-- .header-links -->
 </header><!-- .main-header -->
 
-<nav class="header-nav clearfix" role="navigation">
+<div class="header-nav clearfix" role="navigation">
 	<?php wp_nav_menu(array('theme_location' => 'header_menu')); ?>
 	<?php get_search_form(); ?>
-</nav><!-- .header-nav -->
+</div><!-- .header-nav -->
 
 <div class="main-wrapper">
