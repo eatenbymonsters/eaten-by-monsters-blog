@@ -3,9 +3,12 @@
 // 2. Header Links Focus
 // 3. Lettering JS [disabled]
 // 4. Show/Hide Search
+// 5. Module 01 Slide Selector
 
+$(document).ready(function(){// closed on last line
+  
 // 01. Test Alert
-//$(document).ready(function(){alert("Main JS ready");});
+//alert("Main JS ready");
 
 // 02. Header Links Focus
 $(function(){
@@ -23,31 +26,37 @@ $(function(){
 
 // 03. Lettering JS
 /*
-$(document).ready(function() {
-    $(".lettering").lettering();
-  });
+$(".lettering").lettering();
 */
 
 // 4. Show/Hide Search
-$(document).ready(function(){
-  
-  var openButton = $('.show-search-button');
-  var closeButton = $('.hide-search-button');
-  var fullForm = $('.searchform');
-  var box = $('.search-wrapper');
-  
-  function toggleSearch(){
-      box.toggleClass('open');
-      fullForm.toggle();
-      openButton.toggle();
-  }
-  
-  openButton.click(function(){
-    toggleSearch();
-  });
-  closeButton.click(function(){
-    toggleSearch();
-  });
+var openButton = $('.show-search-button');
+var closeButton = $('.hide-search-button');
+var fullForm = $('.searchform');
+var box = $('.search-wrapper');
+
+function toggleSearch(){
+    box.toggleClass('open');
+    fullForm.toggle();
+    openButton.toggle();
+}
+
+openButton.click(function(){
+  toggleSearch();
+});
+closeButton.click(function(){
+  toggleSearch();
+});
+
+// 5. Module 01 Slide Selector
+$(function(){
+  var selector = $('.slider-selector');
+  selector.click(
+    function(){
+      $(selector).removeClass('active');
+      $(this).addClass('active');
+    }
+  );
 });
 
 /*
@@ -168,3 +177,4 @@ $(function() {
         }).last().addClass("noborder");
 });
 */
+});//Close document.ready

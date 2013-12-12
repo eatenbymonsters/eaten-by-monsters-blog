@@ -2,7 +2,6 @@
 .search-wrapper{
   float:right;
   overflow:hidden;
-  white-space:nowrap;
   height:1.5em;
   width:1.8em;
   @include transition-property(width);
@@ -50,7 +49,7 @@
     font-size:.8em;
     display:block;
     float:left;
-    &[type=text]{
+    &[type=search]{
       width:14em;
       padding:0 0 0 .3em;
       margin:0;

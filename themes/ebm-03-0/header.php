@@ -16,15 +16,15 @@
   	<h4 class="blog-tagline">Music Blog</h4>
   </div><!-- .site-title -->
   
-  <ul class="header-links">
+  <ul class="header-links clearfix">
     <li class="header-link link-unfocus">
-      <a class="rss-link" title="RSS" href="/feed/">
+      <a class="rss-link" title="Soundcloud" href="https://soundcloud.com/eaten-by-monsters-blog/">
         <span aria-hidden="true" data-icon="&#xe607;"></span>
         <span class="visuallyhidden">Soundcloud</span>
       </a>
     </li>
     <li class="header-link link-unfocus">
-      <a class="rss-link" title="RSS" href="/feed/">
+      <a class="rss-link" title="Twitter" href="http://twitter.com/eatenbymonsters/">
         <span aria-hidden="true" data-icon="&#xe603;"></span>
         <span class="visuallyhidden">Twitter</span>
       </a>

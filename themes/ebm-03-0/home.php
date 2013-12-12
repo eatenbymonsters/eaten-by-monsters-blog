@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
-<?php get_template_part('seasonal'); ?>
+<?php //get_template_part('seasonal'); ?>
+
+<?php get_template_part('module01'); ?>
 
 <?php // get_sidebar(); ?>
 

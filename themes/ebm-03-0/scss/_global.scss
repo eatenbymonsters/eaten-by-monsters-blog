@@ -35,10 +35,12 @@ a{
 p{
   line-height:1.37em;
 }
-input[type=submit], .hide-search-button{
-  cursor:pointer;
+*{
   @include transition-property(background);
   @include transition-duration($dur);
+}
+input[type=submit], .hide-search-button{
+  cursor:pointer;
 }
 // Body
 body{
