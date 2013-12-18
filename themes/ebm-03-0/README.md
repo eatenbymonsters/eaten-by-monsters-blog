@@ -1,5 +1,5 @@
-# Eaten by Monsters Music Blog
+# Eaten by Monsters Music Blog Theme 03
 
 ## eatenbymonsters.com
 
-This is a repo of the Eaten by Monsters Music Blog's wp-content folder.
+This is the directory for the third iteration of Eaten by Monsters' custom theme.
