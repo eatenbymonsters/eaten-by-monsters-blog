@@ -1,0 +1,66 @@
+// Body Styles //
+// Base em size
+html{
+  font-size:16px;
+  //@include breakpoint(papa-bear) { font-size: 24px; }
+  //@include breakpoint(mama-bear) { font-size: 12px; }
+  //@include breakpoint(baby-bear) { font-size: 10px; }
+}
+
+// Typography
+body{
+  font-family:$body;
+  font-weight:normal;
+  line-height:1.1em;
+}
+h1, h2, h3, h4, h5, h6{
+  font-family:$display;
+  font-size:2.5em;
+  line-height:1.2em;
+}
+strong{
+  font-family:$caps;
+  text-transform:lowercase;
+  font-weight:normal;
+}
+a, .search-button{
+  text-decoration:none;
+  color:$primary;
+  &:hover{
+    color:$secondary;
+  }
+}
+@mixin button($button-bg-color){
+  display:block;
+  font-family:$display;
+  font-style:italic;
+  color:$cream;
+  background:$button-bg-color;
+  text-align:center;
+  cursor:pointer;
+  @include transition-property(background);
+  @include transition-duration($dur);
+  &:hover{
+    background:$secondary;
+    color:$cream;
+  }
+  a{
+    color:$cream;
+  }
+}
+a{
+  @include transition-property(color);
+  @include transition-duration($dur);
+}
+p{
+  line-height:1.37em;
+}
+input[type=submit], .hide-search-button{
+  cursor:pointer;
+}
+// Body
+body{
+  margin:.5em 1em;
+  background:$cream;
+  color:$black;
+}

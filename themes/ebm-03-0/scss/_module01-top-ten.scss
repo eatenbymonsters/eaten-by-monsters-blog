@@ -1,0 +1,61 @@
+.year-array{
+  border-bottom:dotted $black .14em;
+  padding:1em 0 1em 0;
+  height:3.5em;
+  overflow:hidden;
+  li{
+    display:block;
+    float:left;
+    width:16.66%;
+    text-align:center;
+    position:relative;
+    font-family:$caps;
+    line-height:1em;
+    a{
+      font-size:2em;
+      color:$grey;
+      &.active{
+        position:relative;
+        top:.05em;
+        font-family:$display;
+        font-size:3.5em;//padding:1em 0 0 0;
+        color:$black;
+      }
+      &.pending:before{
+        content:"coming soon";
+        font-size:.5em;
+        width:4em;
+        line-height:2.2em;
+        position:absolute;
+        top:-1.6em;
+      }
+      &:hover{
+        color:$secondary;
+      }
+    }
+  }
+}
+.module-top-ten-middle{
+  height:7.24em;
+}
+.song-album-selectors{
+  float:left;
+  width:25%;
+  height:100%;
+  .song-album-selector{
+    @include button($grey);
+  }
+}
+.module-top-ten-middle-slider{
+  float:left;
+  width:75%;
+  height:100%;
+  background:yellow;
+}
+.module-top-ten-link{
+  @include button($primary);
+  width:100%;
+  padding:.6em;
+  margin-bottom:0 0 .22em 0;
+  font-size:1.5em;
+}

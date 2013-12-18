@@ -1,0 +1,109 @@
+.module01{
+  border-bottom:solid $black .66em;
+}
+
+// Selectors
+.slider-selectors{
+  border-bottom:dotted $black .14em;
+  padding:.66em 0 .66em 0;
+  position:relative;
+  z-index:2;
+  li{
+    @include button($grey);
+    position:relative;
+    //display:block;
+    float:left;
+    width:32%;
+    height:5.5em;
+    padding:1em 0;
+    //text-align:center;
+    //background:$grey;
+    //cursor:pointer;
+    &:first-child{
+      margin-right:2%;
+    }
+    &:first-child+li{
+      margin-right:2%;
+    }
+    //&:hover{
+    //  background:$secondary;
+    //}
+    a{
+      display:block;
+    //  font-family:$display;
+      font-size:1.5em;
+      line-height:1.1em;
+    //  font-style:italic;
+      max-width:35%;
+      min-width:4.584em;
+      margin:0 auto;
+    //  color:$cream;
+    }
+    $noTickerSize:0;
+    $tickerSize:1.5em;
+    &:before, &:after{
+      content: "";
+      position: absolute;
+      bottom: -$noTickerSize + .1em;
+      width: 0;
+      height: 0;
+      border-top: $noTickerSize solid $grey;
+      @include transition-property(border-width, border-color, bottom);
+      @include transition-duration($dur);
+    }
+    &:before{
+      left: 50%;
+      border-right: $tickerSize solid transparent;
+    }
+    &:after{
+      right: 50%;
+      border-left: $tickerSize solid transparent;
+      }
+    &.active{
+      background:$primary;
+      &:before, &:after{
+        bottom: -$tickerSize + .1em;
+        border-top: $tickerSize solid $primary;
+      }
+    }
+  }
+}
+
+// Slider
+$slider-height:14em;
+$slide-dur:$dur * 2;
+.slider{
+  border-bottom:solid $black .22em;
+  padding:0 0 .22em 0;
+  margin:0 0 .22em 0;
+  width:100%;
+  position:relative;
+  z-index:1;
+  height:$slider-height;
+  overflow:hidden;
+}
+.slider-inner{
+  @include transition-property(left);
+  @include transition-duration($slide-dur);
+  position:absolute;
+  top:0;
+  //left:0; //slide1
+  left:-100%; //slide2
+  //left:-200%; // slide3
+  width:300%;
+  height:$slider-height;
+}
+.slide{
+  width:33.33%;
+  float:left;
+  height:100%;
+}
+.slide-one{
+  //background:$primary;
+}
+.slide-two{
+  //background:$secondary;
+}
+.slide-three{
+  //background:$grey;
+}

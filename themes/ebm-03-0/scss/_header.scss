@@ -1,0 +1,79 @@
+// Header //
+.main-header{
+  position:relative;
+  height:7em;
+  border-top:solid $black .22em;
+  border-bottom:solid $black .22em;
+  background:url('/wp-content/themes/ebm-03-0/img/monsters-heads.svg');
+  background-size:auto 7em;
+	background-repeat:no-repeat;
+	background-position:center top;
+  h1, h3{
+    font-size:3.5em;
+  }
+  h4{
+    font-size:1.2em;
+  }
+  .blog-tagline{
+    position:absolute;
+    top:3em;
+    margin-left:4em;
+  }
+  a{
+    color:$black;
+  }
+}
+.no-svg .main-header{
+  background:url('/wp-content/themes/ebm-03-0/img/monsters-heads.png');
+}
+.site-title{
+  padding:0 0 1em 1em;
+  max-width:30em;
+  float:left;
+}
+// Links
+.header-links{
+  font-size:2.5em;
+  line-height:1.5em;
+  //width:4em;
+  float:right;
+  text-align:right;
+  li{
+    display:block;
+    float:right;
+    padding-left:.25em;
+  }
+  & > li:first-child+li a{
+    color:$primary;
+  }
+  & > li:first-child a{
+    color:$secondary;
+  }
+  &:hover .link-unfocus a{
+    color:mix($primary, white, 60%);
+  }
+  //  
+  //}
+}
+// Navigation
+.header-nav{
+  border-bottom:solid $black .66em;
+  margin:0 0 0 0;
+  padding:.45em 0 .2em 0;
+  line-height:1em;
+  a{
+    color:$black;
+    &:hover{
+      color:$secondary;
+    }
+  }
+  li{
+    display:block;
+    float:left;
+    margin:.1em 1em 0 0;
+  }
+}
+.menu-main-nav-container{
+  display:block;
+  background:$secondary;
+}

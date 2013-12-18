@@ -1,0 +1,78 @@
+// Search Form
+.search-wrapper{
+  float:right;
+  overflow:hidden;
+  height:1.5em;
+  width:1.8em;
+  @include transition-property(width);
+  @include transition-duration($dur);
+  &.open{
+    width:18.88em;
+  }
+}
+.search-button{
+  display:block;
+  float:right;
+  cursor:pointer;
+}
+.show-search-button{
+  font-size:1.6em;
+  width:1em;
+  text-align:right;
+  line-height:.6em;
+  margin:.2em 0 0 0;
+  color:$black;
+  &:hover{
+    color:$secondary;
+  }
+}
+.hide-search-button{
+  float:left;
+  font-size:.8em;
+  width:1.6em;
+  height:1.6em;
+  text-align:center;
+  background:$black;
+  &:hover{
+    background:$secondary;
+    color:$cream;
+  }
+  color:$cream;
+}
+.searchform{
+  //show button = 1.8
+  //hide button = 1.28
+  //text = 11.2
+  //submit = 6.4
+  //form = 17.6
+  //form + hide button = 18.88
+  
+  display:none;
+  width:18.88em;
+  input{
+    height:1.6em;
+    font-size:.8em;
+    display:block;
+    float:left;
+    &[type=search]{
+      width:14em;
+      padding:0 0 0 .3em;
+      margin:0;
+      border:.1em solid $primary;
+      border-right:none;
+      @include placeholder{
+        color:$secondary;
+        font-family:$body;
+        font-weight:bold;
+      }
+    }
+    &[type=submit]{
+      @include button($primary);
+      width:8em;
+      margin:0;
+      padding:0;
+      letter-spacing:.05em;
+      border:none;
+    }
+  }
+}
