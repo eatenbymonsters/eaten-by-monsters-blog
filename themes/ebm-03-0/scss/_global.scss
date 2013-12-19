@@ -23,13 +23,16 @@ strong{
   text-transform:lowercase;
   font-weight:normal;
 }
-a, .search-button{
+a{
   text-decoration:none;
   color:$primary;
+  @include transition-property(color);
+  @include transition-duration($dur);
   &:hover{
     color:$secondary;
   }
 }
+
 @mixin button($button-bg-color){
   display:block;
   font-family:$display;
@@ -48,9 +51,9 @@ a, .search-button{
     color:$cream;
   }
 }
-a{
-  @include transition-property(color);
-  @include transition-duration($dur);
+@mixin slide-trans($pos){
+  @include transition-property($pos);
+  @include transition-duration($slide-dur);
 }
 p{
   line-height:1.37em;

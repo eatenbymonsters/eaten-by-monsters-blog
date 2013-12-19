@@ -27,26 +27,23 @@
   }
 }
 .hide-search-button{
+  @include button($black);
   float:left;
+  font-family:$caps;
+  font-style:normal;
   font-size:.8em;
   width:1.6em;
   height:1.6em;
   text-align:center;
-  background:$black;
-  &:hover{
-    background:$secondary;
-    color:$cream;
-  }
-  color:$cream;
 }
 .searchform{
+  //Maths:
   //show button = 1.8
   //hide button = 1.28
   //text = 11.2
   //submit = 6.4
   //form = 17.6
   //form + hide button = 18.88
-  
   display:none;
   width:18.88em;
   input{

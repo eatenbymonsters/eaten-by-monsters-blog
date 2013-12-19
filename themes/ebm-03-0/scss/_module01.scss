@@ -1,5 +1,19 @@
 .module01{
   border-bottom:solid $black .66em;
+  position:relative;
+  //background:rgba(10,233,10,.5);
+  padding:0 0 .66em 0;
+  &:before{
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: .22em;
+    border-bottom: .22em solid $black;
+    //background:blue;
+  }
 }
 
 // Selectors
@@ -73,9 +87,8 @@
 $slider-height:14em;
 $slide-dur:$dur * 2;
 .slider{
-  border-bottom:solid $black .22em;
-  padding:0 0 .22em 0;
-  margin:0 0 .22em 0;
+  padding:0;
+  margin:0;
   width:100%;
   position:relative;
   z-index:1;
@@ -83,8 +96,7 @@ $slide-dur:$dur * 2;
   overflow:hidden;
 }
 .slider-inner{
-  @include transition-property(left);
-  @include transition-duration($slide-dur);
+  @include slide-trans(left);
   position:absolute;
   top:0;
   //left:0; //slide1
@@ -98,12 +110,12 @@ $slide-dur:$dur * 2;
   float:left;
   height:100%;
 }
-.slide-one{
+.slide.one{
   //background:$primary;
 }
-.slide-two{
+.slide.two{
   //background:$secondary;
 }
-.slide-three{
+.slide.three{
   //background:$grey;
 }

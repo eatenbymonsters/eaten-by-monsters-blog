@@ -3,7 +3,8 @@
 // 2. Header Links Focus
 // 3. Lettering JS [disabled]
 // 4. Show/Hide Search
-// 5. Module 01 Slide Selector
+// 5. Module 01 Slider
+// 6. Top Ten Middle Slider
 
 $(document).ready(function(){// closed on last line
   
@@ -49,11 +50,11 @@ closeButton.click(function(){
 });
 
 // 5. Module 01
+// Slide Selector
 $(function(){
   var selector = $('.slider-selector');
   selector.click(
     function(){
-      // Slide Selector
       $(selector).removeClass('active');
       $(this).addClass('active');
     }
@@ -74,6 +75,31 @@ $(function(){
   $('.selector-three').click(
     function(){
       $('.slider-inner').css({"left" : "-200%"});
+    }
+  );
+});
+
+// 6. Top Ten Middle Slider
+//Slide Selector
+$(function(){
+  var selector = $('.tt-selector');
+  selector.click(
+    function(){
+      $(selector).removeClass('active');
+      $(this).addClass('active');
+    }
+  );
+});
+// Sider
+$(function(){
+  $('.tt-selector.albums').click(
+    function(){
+      $('.tt-inner').css({"top" : "0"});
+    }
+  );
+  $('.tt-selector.songs').click(
+    function(){
+      $('.tt-inner').css({"top" : "-100%"});
     }
   );
 });

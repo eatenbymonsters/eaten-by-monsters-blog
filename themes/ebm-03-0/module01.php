@@ -6,13 +6,13 @@
   </ul><!-- .slider-selectors -->
   <div class="slider">
     <div class="slider-inner clearfix">
-      <div class="slide slide-one">
+      <div class="slide one featured">
         <?php get_template_part('module-featured'); ?>
       </div><!-- .slide-one -->
-      <div class="slide slide-two">
+      <div class="slide two top-ten">
         <?php get_template_part('module-top-ten'); ?>
       </div><!-- .slide-two -->
-      <div class="slide slide-three">
+      <div class="slide three signup">
         <?php get_template_part('module-signup'); ?>
       </div><!-- .slide-three -->
     </div><!-- .slider-inner -->

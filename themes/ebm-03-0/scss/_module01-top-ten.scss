@@ -1,8 +1,14 @@
+.slide.top-ten{
+  //background:red;
+}
 .year-array{
   border-bottom:dotted $black .14em;
   padding:1em 0 1em 0;
+  //$slider-height:14em border-bottom.22em
+  //background:blue;
   height:3.5em;
   overflow:hidden;
+  display:block;
   li{
     display:block;
     float:left;
@@ -35,27 +41,111 @@
     }
   }
 }
-.module-top-ten-middle{
-  height:7.24em;
+.tt-content{
+  display:block;
+  //background:red;
+  //$slider-height:14em border-bottom.22em
+  height:10.5em;
 }
-.song-album-selectors{
+.top-ten .tt-middle{
+  height:80%;
+  //background:yellow;
+  padding:.22em 0;
+}
+.tt-selectors{
   float:left;
-  width:25%;
+  width:20%;
   height:100%;
-  .song-album-selector{
+  //background:green;
+  .tt-selector{
+    position:relative;
     @include button($grey);
+    font-size:1.5em;
+    line-height:1.1;
+    padding:.2em 0 0 0;
+    height:48%;
+    &.albums{
+      margin:0 0 2% 0;
+    }
+    &.songs{
+      margin:2% 0 0 0;
+    }
+    $noTickerSize:0;
+    $tickerSize:.5em;
+    &:before, &:after{
+      content: "";
+      position: absolute;
+      right: -$noTickerSize + .1em;
+      width: 0;
+      height: 0;
+      border-left: $noTickerSize solid $grey;
+      @include transition-property(border-width, border-color, right);
+      @include transition-duration($dur);
+    }
+    &:before{
+      top: 50%;
+      border-bottom: $tickerSize solid transparent;
+    }
+    &:after{
+      bottom: 50%;
+      border-top: $tickerSize solid transparent;
+    }
+    &.active{
+      background:$primary;
+      &:before, &:after{
+        right: -$tickerSize + .1em;
+        border-left: $tickerSize solid $primary;
+      }
+    }
   }
 }
-.module-top-ten-middle-slider{
+.tt-slider{
+  position:relative;
   float:left;
-  width:75%;
+  width:78%;
   height:100%;
-  background:yellow;
+  //background:$grey;
+  margin:0 0 0 2%;
+  overflow:hidden;
 }
-.module-top-ten-link{
+.tt-inner{
+  @include slide-trans(top);
+  position:absolute;
+  top:0;//Slide One
+  //top:-100%;//Slide Two
+  left:0;
+  //bottom:0;
+  height:200%;
+  width:100%;
+}
+.tt-slide{
+  //float:left;
+  width:100%;
+  height:50%;
+  overflow:hidden;
+  .tt-excerpt{
+    float:left;
+    width:70%;
+    height:100%;
+    overflow:hidden;
+    &.one{
+      //background:$primary;
+    }
+    &.two{
+      //background:$secondary;
+    }
+  }
+  img{
+    height:100%;
+    max-width:30%;
+    float:right;
+  }
+}
+.tt-link{
   @include button($primary);
   width:100%;
-  padding:.6em;
-  margin-bottom:0 0 .22em 0;
+  height:20%;
+  padding:.4em;
+  //margin-bottom:0 0 .22em 0;
   font-size:1.5em;
 }
