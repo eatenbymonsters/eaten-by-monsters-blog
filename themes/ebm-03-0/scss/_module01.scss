@@ -100,8 +100,8 @@ $slide-dur:$dur * 2;
   position:absolute;
   top:0;
   //left:0; //slide1
-  left:-100%; //slide2
-  //left:-200%; // slide3
+  //left:-100%; //slide2
+  left:-200%; // slide3
   width:300%;
   height:$slider-height;
 }

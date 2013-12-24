@@ -41,6 +41,7 @@ a{
   background:$button-bg-color;
   text-align:center;
   cursor:pointer;
+  border:none;
   @include transition-property(background);
   @include transition-duration($dur);
   &:hover{
