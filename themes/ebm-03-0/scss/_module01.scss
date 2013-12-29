@@ -2,7 +2,7 @@
   border-bottom:solid $black .66em;
   position:relative;
   //background:rgba(10,233,10,.5);
-  padding:0 0 .66em 0;
+  padding:0 0 .44em 0;
   &:before{
     content: " ";
     position: absolute;
@@ -99,9 +99,9 @@ $slide-dur:$dur * 2;
   @include slide-trans(left);
   position:absolute;
   top:0;
-  //left:0; //slide1
+  left:0; //slide1
   //left:-100%; //slide2
-  left:-200%; // slide3
+  //left:-200%; // slide3
   width:300%;
   height:$slider-height;
 }

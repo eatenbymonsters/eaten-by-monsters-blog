@@ -1,0 +1,19 @@
+// Featured slider
+.slide.featured{
+}
+.featured-loop{
+  height:100%;
+  width:100%;
+}
+.featured-post{
+  width:100%;
+  height:100%;
+  float:left;
+  background:$grey;
+  margin:0;
+}
+
+
+
+
+.head-menu > li:first-child+li{}
