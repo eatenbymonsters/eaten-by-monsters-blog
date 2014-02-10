@@ -1,11 +1,12 @@
 </div><!-- .main-wrapper -->
 
 <footer class="main-footer">
-	<h2>Footer</h2>
-	<p>This is the footer.</p>
-	<nav class="foot-access" role="navigation">
-		<?php wp_nav_menu(array('theme_location' => 'footer_menu')); ?>
-	</nav><!-- .foot-access -->
+	<?php wp_nav_menu(array(
+	  'theme_location' => 'footer_menu',
+	  'menu_class' => 'foot-nav clearfix'
+	)); ?>
+	<?php get_template_part('foot'); ?>
 </footer><!-- .main-footer -->
 
-<?php get_template_part('foot'); ?>
+</body>
+</html>

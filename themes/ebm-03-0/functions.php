@@ -19,6 +19,8 @@ Contents
 15. strip width and height from featured images
 16. Allow svg as featured image
 17. Declare Custom Menus
+18. Find latest post in a cat. [DISABLED]
+19. Exclude from main loop
 */
 
 // 01. No Self Ping
@@ -136,4 +138,37 @@ Contents
   	'header_menu' => 'Header Menu',
   	'footer_menu' => 'Footer Menu'
   ) );
+
+/*// 18. Find latest post in a cat.
+function get_lastest_post_of_category($cat){
+    $args = array( 'posts_per_page' => 1, 'order'=> 'DESC', 'orderby' => 'date', 'category__in' => (array)$cat);
+    $post_is = get_posts( $args );
+    return $post_is[0]->ID;
+}
+//*/
+
+// 19. Exclude from main loop
+
+// Get Most Recent 'featured' post ID
+$post_ids = get_posts(array(
+    'numberposts'   => -1, // get all posts.
+    'category_name' => 'featured',
+    'fields'        => 'ids', // Only get post IDs
+));
+$post_to_exclude_ID = $post_ids[0];
+
+//*// Filter Homepage Loop
+function main_loop_excludes($query){
+  if($query->is_main_query() && $query->is_home()){
+    //$featured_cat_ID = "-531";
+	  //$latest_featured_post_ID = 2162;
+	  
+	  // Make sure the var is accessible
+	  //global $post_to_exclude_ID;
+	  // Set the filter
+    $query->set('cat','-531');//$post_to_exclude_ID);
+  }
+}
+add_action('pre_get_posts','main_loop_excludes');
+//*/
 ?>

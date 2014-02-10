@@ -22,9 +22,9 @@ module.exports=function(grunt){
       dynamic: {
         files: [{
           expand: true,
-          cwd: 'img/',
+          cwd: 'img/raw/',
           src: ['**/*.{png,jpg,gif}'],
-          dest: 'images/build/'
+          dest: 'img/build/'
         }]//files
       }//dynamic
     },//imagemin

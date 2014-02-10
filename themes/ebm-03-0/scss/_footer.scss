@@ -1,1 +1,23 @@
 // Footer //
+.main-footer{
+  clear:both;
+  width:100%;
+  border-top:solid $black .22em;
+  border-bottom:solid $black .66em;
+  padding:1em 0;
+  margin:.22em 0 0 0;
+  font-family:$display;
+  font-style:italic;
+  .foot-nav{
+    width:50%;
+    margin:0 auto;
+  }
+  li{
+    float:left;
+    display:block;
+    width:25%;
+    margin:0;
+    padding:0;
+    text-align:center;
+  }
+}

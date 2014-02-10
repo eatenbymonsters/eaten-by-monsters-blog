@@ -1,15 +1,10 @@
 <div class="featured-loop">
   
   <?php
-  // Show only the most recent post with Meta_Data Key of 'featured'
+  // Show only the most recent post with cat. of 'featured'
   $featured_args = array(
     'posts_per_page' => 1,
-    'meta_query' => array(
-      array(
-        'key' => 'featured'//,// Filter by Value as well as Key
-        //'value' => 'yes'
-      )
-    )
+    'category_name' => 'featured'
   );
   $featured_posts = new WP_Query($featured_args);
   
@@ -19,16 +14,20 @@
   ?>
   
     <!-- Shown if there is a featured post: -->
+    <!--
     <div class="featured-post" style="background-image: url(
       <?php
         $postheadimg = get_post_meta($post->ID, 'post-head-img', true);
         if ($postheadimg) {
-  		    echo get_post_meta($post->ID, 'post-head-img', true);
+          echo get_post_meta($post->ID, 'post-head-img', true);
   	    }else{ ?>
 		      http://eatenbymonsters.com/wp-content/uploads/2013/12/default-thumb-small.png
 		  <?php } ?>
 		)">
-			
+		-->
+		
+		<div class="featured-post">
+		  <h3><?php the_title(); ?></h3>	
     </div><!-- .featured-post -->
 
   <?php

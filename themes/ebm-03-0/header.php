@@ -43,4 +43,4 @@
 	<?php get_search_form(); ?>
 </div><!-- .header-nav -->
 
-<div class="main-wrapper">
+<div class="main-wrapper clearfix">
