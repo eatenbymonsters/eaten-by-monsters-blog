@@ -1,10 +1,53 @@
 // Widgets //
+// 01. Seasonal
+// 02. Page Navi
 
-// Seasonal
+// 01. Seasonal
 .seasonal{
   margin:0 0 0 0;
   border-bottom:solid $black .22em;
 }
 a.christmas-link{
   color:$black;
+}
+
+// 02. Page Navi
+.pagenavi-box{
+  font-family:$display;
+  font-style:italic;
+  &.top{
+    margin:.22em 0;
+    padding:0 0 .22em 0;
+    border-bottom:$black dotted .14em;
+  }
+  &.bottom{
+    margin:.22em 0 0 0;
+    padding:.22em 0 0 0;
+    border-top:$black dotted .14em;
+  }
+}
+.wp-pagenavi{
+  span, a{
+    display:inline-block;
+    background:yellow;
+    margin:0 .22em 0 0;
+    padding:.25em .5em;
+	  color:$cream;
+	  background:$primary;
+	  transition:background .3s ease;
+	}
+	.pages{
+	  padding:.25em 1em;
+	  background:$black;
+	}
+	a:hover{
+    background:$secondary;
+  }
+	.current{
+	  background:$cream;
+	  color:$primary;
+	}
+	.extend{
+	  display:none;
+	}
 }

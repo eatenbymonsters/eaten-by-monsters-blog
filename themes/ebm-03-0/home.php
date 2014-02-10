@@ -7,8 +7,11 @@ if(is_home() && 1 == $paged ):
   //get_template_part('seasonal');
   
   get_template_part('module01'); 
-
-endif;?>
+else:?>
+  <div class="pagenavi-box top">
+    <?php wp_pagenavi(); ?>
+  </div><!-- .pagenavi-top -->
+<?php endif;?>
 
 <div class="main-content clearfix">
   
@@ -47,7 +50,9 @@ endif;?>
 <?php endwhile; ?>
 
 <?php include (TEMPLATEPATH . '/inc/nav.php' ); ?>
-<?php wp_pagenavi(); ?>
+<div class="pagenavi-box bottom">
+  <?php wp_pagenavi(); ?>
+</div><!-- .pagenavi-bottom -->
 
 <?php else : ?>
 
