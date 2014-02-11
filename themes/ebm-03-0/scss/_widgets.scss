@@ -15,6 +15,8 @@ a.christmas-link{
 .pagenavi-box{
   font-family:$display;
   font-style:italic;
+  width:100%;
+  clear:both;
   &.top{
     margin:.22em 0;
     padding:0 0 .22em 0;

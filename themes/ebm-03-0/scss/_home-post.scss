@@ -1,0 +1,122 @@
+.home-post{
+  //width:48%;
+  float:left;
+  margin:3em 0 0 0;
+  //margin:3em 0 0 2%;
+  border-bottom:$black solid .66em;
+  &:nth-of-type(2n-1){
+    //clear:both;
+    //margin:3em 2% 0 0;
+  }
+}
+.home-post-head{
+  border-bottom:$black solid .22em;
+  position:relative;
+  padding:0 6.3em .1em 0;
+  margin:.22em 0 0 0;
+  min-height:6.3em;
+  h2{
+    line-height:1em;
+  }
+  a{
+    color:$black;
+    &:hover{
+      color:$secondary;
+    }
+  }
+  .post-rating{
+    position:absolute;
+    top:0;
+    right:0;
+    font-size:1.2em;
+    width:4em;
+    height:4em;
+    line-height:1em;
+    padding:1.5em 0 0 0;
+    border-radius:2em;
+    font-family:$display;
+    text-align:center;
+    background:$black;
+    color:$cream;
+  }
+}
+
+.home-post-body.meta-exists{
+  width:70%;
+  float:left;
+  padding:0 .5em 0 0;
+  .home-post-meta-box{
+    width:100%;
+    line-height:1em;
+    padding:.5em 0;
+    border-bottom:$black solid 1px;
+    .home-post-meta{
+      width:100%;
+      .labels{
+        display:inline-block;
+      	width:25%;
+      	min-width:7.5em;
+      	text-align:right;
+      	padding:0 1em 0 0;
+      }
+      .info{
+      	font-family:$display;
+      	font-style:italic;
+      	text-transform:capitalize;
+      	color:$primary;
+      }
+    }//.home-post-meta
+  }//.home-post-meta-box
+  .home-excerpt p{
+    font-size:.9em;
+    line-height:1.1em;
+  }
+  .home-post-link{
+    font-family:$display;
+    font-style:italic;
+    font-size:2.5em;
+    line-height:1em;
+  }
+}
+.home-post-image{
+  float:right;
+  width:30%;
+  padding:.5em 0;
+  img{
+    width:100%;
+  }
+}
+/*
+.home-post{
+	border-bottom:12px solid #333333;
+	margin:0px 0px 60px 0px;
+}
+.home-post-head{
+	border-bottom:4px solid #333333;
+	width:100%;
+}
+.home-post-head a{
+	color:#333333;
+}
+.home-post-head a:hover{
+	color:#FBAE17;
+}
+.post-rating {
+	font-size:18px;
+	font-family:"ltc-bodoni-175", "bodoni", "didot", serif;
+	line-height:18px;
+	color:#FFFFF6;
+	background: #333333;
+	float: right;
+	margin: 0px 0px 10px 10px;
+	padding: 30px 0 30px 0;
+	text-align: center;
+	border-radius:39px;
+	width:78px;
+	height:18px;
+}
+.home-post-title{
+	width:532px;
+	float:left;
+}
+//*/

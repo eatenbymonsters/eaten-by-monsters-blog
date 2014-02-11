@@ -17,4 +17,5 @@
       </div><!-- .slide-three -->
     </div><!-- .slider-inner -->
   </div><!-- .slider -->
+  <span class="toggle-slider-display" aria-hidden="true" data-icon="&#215;"></span>
 </div><!-- .module01 -->

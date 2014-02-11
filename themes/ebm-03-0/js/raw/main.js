@@ -6,6 +6,7 @@
 // 5. Module 01 Slider
 // 6. Top Ten Middle Slider
 // 7. Pagenavi Clearfix Apend
+// 8. Toggle Slider Display
 
 $(document).ready(function(){// closed on last line
   
@@ -298,4 +299,14 @@ function mce_success_cb(resp){
 //alert("pagenavi append working");
 $('.wp-pagenavi').addClass('clearfix');
 
-});//Close document.ready
+// 8. Toggle Slider Display
+$(function(){
+  $('.toggle-slider-display').click(
+    function(){
+      $('.module01').toggleClass('slider-hidden');
+    }
+  );
+});
+
+//Close document.ready
+});
