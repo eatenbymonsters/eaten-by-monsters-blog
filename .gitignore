@@ -1,4 +1,10 @@
 *node_modules*
 *sass-cache*
 *twentythirteen/
-*uploads/
+plugins/
+# *uploads/
+# *yet-another-related-posts-plugin/
+# *wordpress-seo/
+# *wordpress-importer/
+# *akismet/
+# *digg-digg/
