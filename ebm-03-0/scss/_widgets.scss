@@ -53,3 +53,12 @@ a.christmas-link{
 	  display:none;
 	}
 }
+// Fallback 'Next' and 'Prev' links if pagenavi breaks
+.fallback{
+  &.next-posts{
+    float:right;
+  }
+  &.prev-posts{
+    float:left;
+  }
+}

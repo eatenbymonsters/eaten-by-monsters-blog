@@ -13,9 +13,22 @@ if(is_home() && 1 == $paged ):
 <?php else:?>
 
   <div class="main-content clearfix">
-    <div class="pagenavi-box top">
+    
+  <div class="pagenavi-box top clearfix">
+    <?php if(function_exists('wp_pagenavi')): ?>
       <?php wp_pagenavi(); ?>
-    </div><!-- .pagenavi-top -->
+    <?php else: ?>
+  
+      <div class="prev-posts fallback">
+        <?php previous_posts_link( '« Newer Entries' ) ?>
+      </div><!-- .prev-posts-fallback -->
+      <div class="next-posts fallback">
+        <?php next_posts_link('Older Entries »', 0); ?>
+      </div><!-- .next-posts-fallback -->
+  
+    <?php endif; ?>
+  </div><!-- .pagenavi-top -->
+    
 <?php endif;?>
   
 <!--div class="test-loop-filtering-answer">
@@ -37,8 +50,20 @@ if(is_home() && 1 == $paged ):
 <?php endwhile; ?>
 
 <?php //include (TEMPLATEPATH . '/inc/nav.php' ); ?>
-<div class="pagenavi-box bottom">
-  <?php wp_pagenavi(); ?>
+
+<div class="pagenavi-box bottom clearfix">
+  <?php if(function_exists('wp_pagenavi')): ?>
+    <?php wp_pagenavi(); ?>
+  <?php else: ?>
+    
+    <div class="prev-posts fallback">
+      <?php previous_posts_link( '« Newer Entries' ) ?>
+    </div><!-- .prev-posts-fallback -->
+    <div class="next-posts fallback">
+      <?php next_posts_link('Older Entries »', 0); ?>
+    </div><!-- .next-posts-fallback -->
+    
+  <?php endif; ?>
 </div><!-- .pagenavi-bottom -->
 
 <?php else : ?>
