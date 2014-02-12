@@ -6,7 +6,6 @@
 // 5. Module 01 Slider
 // 6. Top Ten Middle Slider
 // 7. Pagenavi Clearfix Apend
-// 8. Toggle Slider Display
 
 $(document).ready(function(){// closed on last line
   
@@ -63,20 +62,50 @@ $(function(){
   );
 });
 // Sider
+var // Find the objects
+    module = $('.module01'),
+    toggleViewButton = $('.toggle-slider-display'),
+    panelFind = $('.slider-inner'),
+    selectorOne = $('.selector-one'),
+    selectorTwo = $('.selector-two'),
+    selectorThree = $('.selector-three'),
+    // define positions
+    panelOnePosition = "0",
+    panelTwoPosition = "-100%",
+    panelThreePosition = "-200%";
+
+// Toggle Slider Display Functions
+function toggleSliderDisplay(){
+  module.toggleClass('slider-hidden');
+}
+function openSliderDisplay(){
+  module.removeClass('slider-hidden');
+}
+// function to set slider positions
+function panelSetPosition($leftPosition){
+  panelFind.css({"left" : $leftPosition });
+}
+// call slider positions function when selectors are clicked
+// and ensure slider box is visible
 $(function(){
-  $('.selector-one').click(
+  selectorOne.click(function(){
+    panelSetPosition(panelOnePosition);
+    openSliderDisplay();
+  });
+  selectorTwo.click(function(){
+    panelSetPosition(panelTwoPosition);
+    openSliderDisplay();
+  });
+  selectorThree.click(function(){
+    panelSetPosition(panelThreePosition);
+    openSliderDisplay();
+  });
+});
+
+$(function(){
+  toggleViewButton.click(
     function(){
-      $('.slider-inner').css({"left" : "0"});
-    }
-  );
-  $('.selector-two').click(
-    function(){
-      $('.slider-inner').css({"left" : "-100%"});
-    }
-  );
-  $('.selector-three').click(
-    function(){
-      $('.slider-inner').css({"left" : "-200%"});
+      toggleSliderDisplay();
     }
   );
 });
@@ -298,15 +327,6 @@ function mce_success_cb(resp){
 // 7. Pagenavi Clearfix Apend
 //alert("pagenavi append working");
 $('.wp-pagenavi').addClass('clearfix');
-
-// 8. Toggle Slider Display
-$(function(){
-  $('.toggle-slider-display').click(
-    function(){
-      $('.module01').toggleClass('slider-hidden');
-    }
-  );
-});
 
 //Close document.ready
 });
