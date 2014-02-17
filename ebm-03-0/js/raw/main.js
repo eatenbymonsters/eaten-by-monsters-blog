@@ -51,6 +51,55 @@ closeButton.click(function(){
 });
 
 // 5. Module 01
+var currentSlide = 1;
+var // objects
+  allSelectors = $('.slider-selectors'),
+  slideSelector = $('.slider-selector'),
+  slider = $('.slider-inner'),
+  slide = $('.slide'),
+  collapsibleArea = $('.slider'),
+  viewButton = $('.toggle-slider-display'),
+  // Selectors
+  selectorOne = $('.selector-one'),
+  selectorTwo = $('.selector-two'),
+  selectorThree = $('.selector-three'),
+  // Slide Positions
+  slideOnePosition = "0",
+  slideTwoPosition = "-100%",
+  slideThreePosition = "-200%";
+// Hide/Show slider
+function toggleSliderView(){
+  collapsibleArea.slideToggle();
+  allSelectors.toggleClass('noShow');
+  viewButton.toggleClass('noShow');
+}
+function showSlider(){
+  collapsibleArea.slideDown();
+  allSelectors.removeClass('noShow');
+  viewButton.removeClass('noShow');
+}
+// Show/Hide slider using button
+viewButton.click(function(){
+  toggleSliderView();
+});
+
+function positionSlider(tar, pos){
+  slider.css({"left" : pos });
+  slideSelector.removeClass('active');
+  tar.addClass('active');
+  showSlider();
+}
+selectorOne.click(function(){
+  positionSlider(selectorOne, slideOnePosition);
+});
+selectorTwo.click(function(){
+  positionSlider(selectorTwo, slideTwoPosition);
+});
+selectorThree.click(function(){
+  positionSlider(selectorThree, slideThreePosition);
+});
+
+/*
 // Slide Selector
 $(function(){
   var selector = $('.slider-selector');
@@ -64,6 +113,7 @@ $(function(){
 // Sider
 var // Find the objects
     module = $('.module01'),
+    slider = $('.slider'),
     toggleViewButton = $('.toggle-slider-display'),
     panelFind = $('.slider-inner'),
     selectorOne = $('.selector-one'),
@@ -74,12 +124,25 @@ var // Find the objects
     panelTwoPosition = "-100%",
     panelThreePosition = "-200%";
 
+
 // Toggle Slider Display Functions
 function toggleSliderDisplay(){
   module.toggleClass('slider-hidden');
+  slider.toggle(//);
+    function(){
+      slider.animate({'height':'6.8em'},500);
+      //module.addClass('slider-hidden');
+    },
+    function(){
+      slider.animate({'height':'auto'},500);
+      //module.removeClass('slider-hidden');
+});
+  
+  //module.animate({'height':'6.8em'});
 }
 function openSliderDisplay(){
   module.removeClass('slider-hidden');
+  slider.animate({'height': 'auto'});
 }
 // function to set slider positions
 function panelSetPosition($leftPosition){
@@ -90,18 +153,17 @@ function panelSetPosition($leftPosition){
 $(function(){
   selectorOne.click(function(){
     panelSetPosition(panelOnePosition);
-    openSliderDisplay();
+    //openSliderDisplay();
   });
   selectorTwo.click(function(){
     panelSetPosition(panelTwoPosition);
-    openSliderDisplay();
+    //openSliderDisplay();
   });
   selectorThree.click(function(){
     panelSetPosition(panelThreePosition);
-    openSliderDisplay();
+    //openSliderDisplay();
   });
 });
-
 $(function(){
   toggleViewButton.click(
     function(){
@@ -109,6 +171,8 @@ $(function(){
     }
   );
 });
+
+//*/
 
 // 6. Top Ten Middle Slider
 //Slide Selector

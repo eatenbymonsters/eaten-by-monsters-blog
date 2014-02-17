@@ -2,11 +2,6 @@
   border-bottom:solid $black .66em;
   position:relative;
   padding:0 0 1.94em 0;// .44 + height of Toggle Display
-  
-  transition-property:height;
-  transition-duration:$dur;
-  
-  //margin:0 0 2em 0;
   &:before{
     content: " ";
     position: absolute;
@@ -25,28 +20,31 @@
     left:50%;
     margin:0 0 0 -.75em;
     display:block;
-    //content:"\00d7";
     width:1.5em;
     height:1.5em;
     border-radius:.75em;
     background:$black;
-    color:$cream;
-    text-align:center;
-    line-height:1em;
-    padding:.1em 0 0 0;
+    //color:$cream;
+    //text-align:center;
+    //line-height:1em;
+    //padding:.1em 0 0 0;
     cursor:pointer;
+    &:before{
+      content:"v";//\00d7";
+      display:block;
+      width:1.5em;
+      height:1.5em;
+      color:$cream;
+      text-align:center;
+      line-height:1em;
+      padding:.1em 0 0 0;
+      cursor:pointer;
+    }
+    &.noShow:before{
+      content:"down";
+    }
     &:hover{
       background:$secondary;
-    }
-  }
-  // Toggle Display: effect
-  &.slider-hidden{
-    height:6.8em;
-    transition-property:height;
-    transition-duration:$dur;
-    overflow:hidden;
-    .slider-selectors li:before, .slider-selectors li:after, .slider{
-      display:none;
     }
   }
 }
@@ -106,6 +104,16 @@
         bottom: -$tickerSize + .1em;
         border-top: $tickerSize solid $primary;
       }
+    }
+  }
+  &.noShow{
+    border-bottom:none;
+    li.active{
+      background:$grey;
+      &:hover{background:$secondary;}
+    }
+    .slider-selector:before, .slider-selector:after{
+      display:none;
     }
   }
 }
