@@ -24,24 +24,18 @@
     height:1.5em;
     border-radius:.75em;
     background:$black;
-    //color:$cream;
-    //text-align:center;
-    //line-height:1em;
-    //padding:.1em 0 0 0;
+    color:$cream;
+    text-align:center;
+    line-height:1em;
+    padding:2px 0 0 1px;
     cursor:pointer;
     &:before{
-      content:"v";//\00d7";
-      display:block;
-      width:1.5em;
-      height:1.5em;
-      color:$cream;
-      text-align:center;
-      line-height:1em;
-      padding:.1em 0 0 0;
-      cursor:pointer;
+      font-family:$icons;
+      font-size:.8em;
+      content:"\e000";
     }
     &.noShow:before{
-      content:"down";
+      content:"\e010";
     }
     &:hover{
       background:$secondary;

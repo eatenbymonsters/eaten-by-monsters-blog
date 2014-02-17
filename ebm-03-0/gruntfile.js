@@ -3,7 +3,35 @@ module.exports=function(grunt){
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-fontsmith');
+  grunt.loadNpmTasks('grunt-autoprefixer');
+  
   grunt.initConfig({
+    
+    font:{//fontsmith task
+      all:{
+        src:['fonts/raw-icons/*.svg'],
+        destCss:'scss/_icons.scss',
+        destFonts:'fonts/built/icons.{svg,woff,eot,ttf}',
+        fontFamily:'icons',
+        cssRouter: function (fontpath) {
+          return '' + fontpath;
+        }//cssRouter
+      }//all
+    },//font
+    
+    autoprefixer: {
+      options: {
+        browsers:['last 2 versions', 'ie 8', 'ie 9']
+        // Task-specific options go here.
+      },//options
+      dist:{
+        files:{
+          'style.css': 'root.css'
+        }//files
+      }//dist
+    },//autoprefixer
+    
     uglify:{
       my_target:{
         files:{
@@ -11,6 +39,7 @@ module.exports=function(grunt){
         }//files
       }//my_target
     },//uglify
+    
     compass:{
       dev:{
         options:{
@@ -18,6 +47,7 @@ module.exports=function(grunt){
         }//options
       }//dev
     },//compass
+    
     imagemin: {
       dynamic: {
         files: [{
@@ -28,7 +58,16 @@ module.exports=function(grunt){
         }]//files
       }//dynamic
     },//imagemin
+    
     watch:{
+      iconfont:{
+        files:['fonts/raw-icons/*.svg'],
+        tasks:['font']
+      },//iconfont
+      styles:{
+        files: ['root.css'],
+        tasks: ['autoprefixer']
+      },//styles
       options:{ livereload:true},
       scripts:{
         files:['js/raw/*.js'],
@@ -40,8 +79,12 @@ module.exports=function(grunt){
       },//sass
       php:{
         files: ['*.php']
-      }//php
-    }//watch  
+      },//php
+      html:{
+        files: ['*.html']
+      }//html
+    }//watch
+      
   })//initConfig
   grunt.registerTask('default','watch');
 }//exports

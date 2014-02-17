@@ -33,6 +33,7 @@
 }
 // Links
 .header-links{
+  font-family:$icons;
   font-size:2.5em;
   line-height:1.5em;
   //width:4em;
@@ -42,6 +43,10 @@
     display:block;
     float:right;
     padding-left:.25em;
+    //&:before{
+    //  font-family:$icons;
+    //  content:"\e004";
+    //}
   }
   & > li:first-child+li a{
     color:$primary;

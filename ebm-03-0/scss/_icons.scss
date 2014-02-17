@@ -1,0 +1,95 @@
+$icon-up-font-family: "icons";
+$icon-up-value: "\e000";
+$icon-up: "icons" "\e000";
+$icon-html5-font-family: "icons";
+$icon-html5-value: "\e00c";
+$icon-html5: "icons" "\e00c";
+$icon-php-font-family: "icons";
+$icon-php-value: "\e009";
+$icon-php: "icons" "\e009";
+$icon-left-font-family: "icons";
+$icon-left-value: "\e00b";
+$icon-left: "icons" "\e00b";
+$icon-twitter-font-family: "icons";
+$icon-twitter-value: "\e002";
+$icon-twitter: "icons" "\e002";
+$icon-rssCircle-font-family: "icons";
+$icon-rssCircle-value: "\e006";
+$icon-rssCircle: "icons" "\e006";
+$icon-modernizr-font-family: "icons";
+$icon-modernizr-value: "\e00a";
+$icon-modernizr: "icons" "\e00a";
+$icon-right-font-family: "icons";
+$icon-right-value: "\e008";
+$icon-right: "icons" "\e008";
+$icon-down-font-family: "icons";
+$icon-down-value: "\e010";
+$icon-down: "icons" "\e010";
+$icon-search-font-family: "icons";
+$icon-search-value: "\e005";
+$icon-search: "icons" "\e005";
+$icon-github-font-family: "icons";
+$icon-github-value: "\e00e";
+$icon-github: "icons" "\e00e";
+$icon-grunt-font-family: "icons";
+$icon-grunt-value: "\e00d";
+$icon-grunt: "icons" "\e00d";
+$icon-rss-font-family: "icons";
+$icon-rss-value: "\e007";
+$icon-rss: "icons" "\e007";
+$crotchet-font-family: "icons";
+$crotchet-value: "\e012";
+$crotchet: "icons" "\e012";
+$icon-soundcloudCircle-font-family: "icons";
+$icon-soundcloudCircle-value: "\e004";
+$icon-soundcloudCircle: "icons" "\e004";
+$icon-git-font-family: "icons";
+$icon-git-value: "\e00f";
+$icon-git: "icons" "\e00f";
+$icon-cart-font-family: "icons";
+$icon-cart-value: "\e011";
+$icon-cart: "icons" "\e011";
+$icon-th-font-family: "icons";
+$icon-th-value: "\e003";
+$icon-th: "icons" "\e003";
+$icon-twitterCircle-font-family: "icons";
+$icon-twitterCircle-value: "\e001";
+$icon-twitterCircle: "icons" "\e001";
+
+@mixin icon-font-family($char) {
+  font-family: nth($char, 1);
+}
+
+@mixin icon-font() {
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin icon-content($char) {
+  content: nth($char, 2);
+}
+
+@mixin icon($char) {
+  @include icon-font-family($char);
+  @include icon-font();
+
+  &:before {
+    @include icon-content($char);
+  }
+}
+
+@font-face {
+  font-family: "icons";
+  src:url("fonts/built/icons.eot");
+  src:url("fonts/built/icons.eot?#iefix") format("embedded-opentype"),
+    url("fonts/built/icons.woff") format("woff"),
+    url("fonts/built/icons.ttf") format("truetype"),
+    url("fonts/built/icons.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}

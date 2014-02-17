@@ -1,6 +1,6 @@
 <div class="search-wrapper">
   <div class="show-search-button search-button" title="Search">
-    <span aria-hidden="true" data-icon="&#xe601;"></span>
+    <span aria-hidden="true" data-icon="&#xe005;"></span>
     <span class="visuallyhidden">Show search form</span>
   </div><!-- .show-search-button -->
   <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">

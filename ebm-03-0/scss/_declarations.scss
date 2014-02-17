@@ -14,6 +14,9 @@ $display:"ltc-bodoni-175", "bodoni", "didot", serif;
 $body:"ff-meta-web-pro", "Helvetica Neue", helvetica, arial, sans-serif;
 $caps:"ff-meta-sc-web-pro", $body;
 // Icon Font
+@import"icons";
+$icons:"icons",$caps;
+/*
 @font-face {
 	font-family: 'icons';
 	src:url('fonts/icons/icons.eot');
@@ -24,10 +27,11 @@ $caps:"ff-meta-sc-web-pro", $body;
 	font-weight: normal;
 	font-style: normal;
 }
+*/
 [data-icon]:before {
-  font-family: "icons", $caps; /* BYO icon font, mapped smartly */
+  font-family: $icons; // BYO icon font, mapped smartly
   content: attr(data-icon);
-  speak: none; /* Not to be trusted, but hey. */
+  speak: none; // Not to be trusted, but hey.
 }
 $twitter-icon:e603;
 $soundcloud-icon:e607;
