@@ -3,7 +3,7 @@
 // 02. Page Navi
 // 03. Yoast SEO Breadcrumbs
 // 04. Modular Meta Styles
-// 05. Social Buttons
+// 05. Related Posts
 
 // 01. Seasonal
 .seasonal{
@@ -74,7 +74,7 @@ a.christmas-link{
 
 // 04. Modular Meta Styles
 // Rating Circle
-a.post-rating{
+.post-rating{
   display:block;
   font-size:1.2em;
   width:4em;
@@ -86,7 +86,7 @@ a.post-rating{
   text-align:center;
   background:$black;
   color:$cream;
-  cursor:pointer;
+  //cursor:pointer;
   &:hover{color:$cream;}
 }
 // Post Meta
@@ -103,3 +103,81 @@ a.post-rating{
 	text-transform:capitalize;
 	color:$primary;
 }
+
+// 05. Related Posts
+.yarpp-related h3{
+	font-size:2em;
+	border-bottom:$black solid 1px;
+}
+.related-posts{
+  width:100%;
+  //background:yellow;
+}
+.related-post{
+	width:48%;
+	float:left;
+	border-top:$black dotted 2px;
+	border-bottom:$black solid .66em;
+	margin:1em 2% 0 0;
+	padding:.5em 0 0 0;
+	h4{
+	  font-size:1.5em;
+	  line-height:1.1em;
+    a{color:$primary;
+      &:hover{color:$secondary;}}
+    border-bottom:$black solid 1px;
+	}
+	.related-post-meta{
+	  width:33.33%;
+	  float:left;
+	  .meta{
+	    color:$primary;
+	    font-family:$display;
+	    font-style:italic;
+	    line-height:1em;
+	  }
+	}
+	.post-rating{
+	  margin:.22em auto;
+	}
+	.related-post-image{
+  	float:right;
+  	min-height:4em;
+  	overflow:hidden;
+  	background:blue;
+  }
+}
+/*
+.related-post-meta{
+	width:33%;
+	float:left;
+	color:#333;
+}
+.related-post-meta p{
+	font-size:16px;
+	line-height:20px;
+	padding:0px;
+}
+
+.related-meta{
+	color:#7FBBC8;
+	font-family:"ltc-bodoni-175", "bodoni", "didot", serif;
+	font-style:italic;
+	font-size:18px;
+}
+.related-post .post-rating{
+	margin-top:10px;
+}
+.related-post-image{
+	float:right;
+	margin-bottom:3px;
+	min-height:100px;
+}
+.related-excerpt{
+	height:100px;
+	overflow:hidden;
+}
+.related-excerpt p{
+	line-height:20px;
+}
+*/

@@ -78,9 +78,7 @@
       		
       		<?php if ($rating) {?>
       		  <div class="rating-box">
-      		    <a class="post-rating" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-      		      <?php echo $rating;?>
-      		    </a>
+      		    <span class="post-rating"><?php echo $rating;?></span>
       		  </div><!-- .rating-box -->
       		<?php }?>
       	</div><!-- .meta-box -->
@@ -99,27 +97,18 @@
   			</div><!-- .intro -->
   		<?php }?>
 
-  		<?php if ( has_post_thumbnail() ) {?>
-  		<div class="release-cover">
-  			<?php if ($amazon_com) {?>
-  				<a href="<?php echo get_post_meta($post->ID, 'amazon-com', true);?>">
-  					<?php the_post_thumbnail('cover'); ?>
-  				</a>
-  			<?php } else if ($amazon_uk){ ?>
-  				<a href="<?php echo get_post_meta($post->ID, 'amazon-uk', true);?>">
-  					<?php the_post_thumbnail('cover'); ?>
-  				</a>
-  			<?php } else if ($amazon){ ?>
-  				<a href="<?php echo get_post_meta($post->ID, 'amazon', true);?>">
-  					<?php the_post_thumbnail('cover'); ?>
-  				</a>
-  			<?php } else if ( !in_category(array('media', 'article'))){
-  					the_post_thumbnail('cover');
-  				}
-  			?>
-  		</div><!-- .release-cover -->
+  		<?php if ( has_post_thumbnail() && !in_category(array('media', 'article'))) {?>
+  		  <div class="release-cover">
+  		    <?php if ($amazon_com || $amazon_uk || $amazon) { ?><a href="<?php
+  		      if ($amazon_com) { echo $amazon_com;
+  		      } else if ($amazon_uk){ echo $amazon_uk;
+  		      } else if ($amazon){ echo $amazon;
+  		      }
+  		    ?>"><?php }
+  		  	  the_post_thumbnail('cover'); 
+  		  	if ($amazon_com || $amazon_uk || $amazon) { ?></a><?php } ?>
+  		  </div><!-- .release-cover -->
   		<?php } ?>
-
 
   		<?php the_content(); ?>
   		
@@ -129,7 +118,7 @@
     
     <footer class="post-footer">
       <div class="digg-plug">
-    		<?php if(function_exists('dd_twitter_generate')){dd_twitter_generate('Compact','twitter_username');} ?>
+    		<?php //if(function_exists('dd_twitter_generate')){dd_twitter_generate('Compact','twitter_username');} ?>
     		<?php //if(function_exists('dd_fblike_generate')){dd_fblike_generate('Like Button Count');} ?> 
     		<?php //if(function_exists('dd_pinterest_generate')){dd_pinterest_generate('Compact');} ?> 
     		<?php //if(function_exists('dd_google1_generate')){dd_google1_generate('Compact (20px)');} ?>
@@ -148,6 +137,8 @@
 		<?php next_post_link( '<span class="next">%link</span>'); ?>
 		<?php previous_post_link( '<span class="prev">%link</span>'); ?>
 	</nav>
+	
+	<?php related_posts();?>
 	
 <?php endwhile; // end of the loop. ?>
 </div><!-- .main-content -->
