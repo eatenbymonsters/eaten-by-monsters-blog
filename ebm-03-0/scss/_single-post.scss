@@ -1,6 +1,9 @@
 // Single Post
 // 00. Template Identifier
-// 01. Post Header
+// 01. Post Body
+// 02. Post Header
+// 03. Main Content
+// 04. Post Footer
 
 // 00. Template Identifier
 .template-identifier{
@@ -16,7 +19,12 @@
   
   display:none;
 }
-// 01. Post Header
+
+// 01. Post Body
+.single-post{
+  border-bottom:$black solid .66em;
+}
+// 02. Post Header
 .single-post header{
   border-bottom:$black solid .66em;
   h1{
@@ -76,6 +84,90 @@
       .post-rating{
         float:right;
       }
+    }
+  }
+}
+// "Edit" link
+.post-edit-link{
+  display:block;
+  padding:.1em 0 .4em 0;
+  margin:.22em 0;
+  line-height:.8em;
+  background:$black;
+  color:$cream;
+  width:100%;
+  font-family:$caps;
+  text-align:center;
+  &:hover{color:$cream;background:$secondary;}
+}
+
+// 03. Main Content
+// Release Cover Image
+.release-cover{
+  float:right;
+}
+.entry-content{
+  .intro{
+    padding:1em 0;
+    h3 p{
+      font-family:$body;
+      font-size:.5em;
+      line-height:1.2em;
+      padding:0 0 0 2em;
+    }
+  }
+  p{
+    padding:0 0 1em 0;
+  }
+  .subscribe-prompt{
+    font-size:1.2em;
+  }
+}
+
+// 04. Post Footer
+.single-post .post-footer{
+  .post-date{
+    font-family:$display;
+    font-style:italic;
+    font-size:1.5em;
+    padding:0 0 0 0;
+  }
+  .digg-plug{
+  	border-top:$black solid 1px;
+  	padding:1em 0 0 0;
+  	margin:0;
+  }
+}
+.post-next-prev{
+  display:block;
+  width:100%;
+  padding:.22em 0;
+  margin:.22em 0;
+  border-top:$black solid 1px;
+  border-bottom:$black solid 1px;
+  span a{
+    @include button($primary);
+    width:49%;
+    line-height:1em;
+    padding:.2em 1em .4em 1em;
+  }
+  .next a{
+    float:left;
+    &:before{
+      //font-family:$icons;
+      //content:"\e00b";
+      padding:0 1em 0 0;
+      content:"←";
+    }
+  }
+  .prev a{
+    //text-align:right;
+    float:right;
+    &:after{
+      //font-family:$icons;
+      //content:"\e008";
+      padding:0 0 0 1em;
+      content:"→";
     }
   }
 }

@@ -1,27 +1,23 @@
 <?php
-/*
-Contents
-========
-01. No Self Ping
-02. Excerpt Length
-03. Allow "rel" Links
-04. Add RSS links to <head> section
-05. Declare Woocommerce Support [DISABLED]
-06. Include WooCommerce Custom Functions File [DISABLED]
-07. Disable Admin Bar [DISABLED]
-08. Clean Up wp_head
-09. Clean up the <head>
-10. call the slug with the_slug();
-11. Remove hints on LogIn failure
-12. Remove WP version # from head
-13. Strip scroll link from ‘read more’ links. [DISABLED]
-14. featured image support
-15. strip width and height from featured images
-16. Allow svg as featured image
-17. Declare Custom Menus
-18. Find latest post in a cat. [DISABLED]
-19. Exclude from main loop
-*/
+// 01. No Self Ping
+// 02. Excerpt Length
+// 03. Allow "rel" Links
+// 04. Add RSS links to <head> section
+// 05. Declare Woocommerce Support [DISABLED]
+// 06. Include WooCommerce Custom Functions File [DISABLED]
+// 07. Disable Admin Bar [DISABLED]
+// 08. Clean Up wp_head
+// 09. Clean up the <head>
+// 10. call the slug with the_slug();
+// 11. Remove hints on LogIn failure
+// 12. Remove WP version # from head
+// 13. Strip scroll link from ‘read more’ links. [DISABLED]
+// 14. featured image support
+// 15. strip width and height from featured images
+// 16. Allow svg as featured image
+// 17. Declare Custom Menus
+// 18. Find latest post in a cat. [DISABLED]
+// 19. Exclude from main loop
 
 // 01. No Self Ping
 function no_self_ping( &$links ) {
@@ -165,4 +161,5 @@ function main_loop_excludes($query){
   }
 }
 add_action('pre_get_posts','main_loop_excludes');
+
 ?>
