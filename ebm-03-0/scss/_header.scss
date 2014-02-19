@@ -4,7 +4,7 @@
   height:7em;
   border-top:solid $black .22em;
   border-bottom:solid $black .22em;
-  background:url('/wp-content/themes/ebm-03-0/img/monsters-heads.svg');
+  background:url('img/build/monsters-heads.svg');
   background-size:auto 7em;
 	background-repeat:no-repeat;
 	background-position:center top;
@@ -24,7 +24,7 @@
   }
 }
 .no-svg .main-header{
-  background:url('/wp-content/themes/ebm-03-0/img/build/monsters-heads.png');
+  background:url('/img/build/monsters-heads.png');
 }
 .site-title{
   padding:0 0 1em 1em;

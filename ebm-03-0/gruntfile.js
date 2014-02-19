@@ -82,7 +82,11 @@ module.exports=function(grunt){
       },//php
       html:{
         files: ['*.html']
-      }//html
+      },//html
+      imgmin:{
+        files:['img/raw/*'],
+        tasks:['imagemin']
+      }//imgmin
     }//watch
       
   })//initConfig

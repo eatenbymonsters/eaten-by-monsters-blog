@@ -1,6 +1,8 @@
 // Widgets //
 // 01. Seasonal
 // 02. Page Navi
+// 03. Yoast SEO Breadcrumbs
+// 04. Modular Meta Styles
 
 // 01. Seasonal
 .seasonal{
@@ -23,7 +25,7 @@ a.christmas-link{
     border-bottom:$black dotted .14em;
   }
   &.bottom{
-    margin:.22em 0 0 0;
+    margin:1em 0 0 0;//.22em 0 0 0;
     padding:.22em 0 0 0;
     border-top:$black dotted .14em;
   }
@@ -61,4 +63,42 @@ a.christmas-link{
   &.prev-posts{
     float:left;
   }
+}
+
+// 03. Yoast SEO Breadcrumbs
+.breadcrumbs{
+  font-size:.8em;
+  padding:.5em 0;
+}
+
+// 04. Modular Meta Styles
+// Rating Circle
+a.post-rating{
+  display:block;
+  font-size:1.2em;
+  width:4em;
+  height:4em;
+  line-height:1em;
+  padding:1.5em 0 0 0;
+  border-radius:2em;
+  font-family:$display;
+  text-align:center;
+  background:$black;
+  color:$cream;
+  cursor:pointer;
+  &:hover{color:$cream;}
+}
+// Post Meta
+.meta .labels{
+  display:inline-block;
+	width:25%;
+	min-width:7.5em;
+	text-align:right;
+	padding:0 .5em 0 0;
+}
+.meta .info{
+	font-family:$display;
+	font-style:italic;
+	text-transform:capitalize;
+	color:$primary;
 }

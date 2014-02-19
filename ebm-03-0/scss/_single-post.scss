@@ -1,0 +1,81 @@
+// Single Post
+// 00. Template Identifier
+// 01. Post Header
+
+// 00. Template Identifier
+.template-identifier{
+  display:block;
+  width:100%;
+  padding:0 0 .5em 0;
+  //margin:0 0 .22em 0;
+  font-size:2em;
+  line-height:1em;
+  font-family:$display;
+  font-style:italic;
+  border-bottom:$black solid .33em;
+  
+  display:none;
+}
+// 01. Post Header
+.single-post header{
+  border-bottom:$black solid .66em;
+  h1{
+    font-size:2em;
+  }
+  h2{
+    font-size:1.5em;
+    font-style:italic;
+    line-height:1.1em;
+  }
+  .meta-box{
+    border-top:$black solid .22em;
+    padding:.22em 0;
+    .meta-inner{
+      min-height:4.8em;//(1.2*4em)=ratingHeight
+      width:85%;
+      float:left;
+      line-height:1em;
+      .band-links{
+        border-top:$black solid 1px;
+        margin:.22em 0 0 0;
+        padding:.22em 0 0 0;
+        .band-links-label{
+          float:left;
+          display:inline-block;
+        	width:25%;
+        	min-width:7.5em;
+        	text-align:right;
+        	padding:0 .5em 0 0;
+        }
+        ul{
+          float:left;
+          width:75%;
+          display:block;
+        	font-family:$display;
+        	font-style:italic;
+        	color:$primary;
+        	li{
+        	  display:block;
+        	  float:left;
+        	  padding:0 1em 0 0;
+        	  //width:25%;//33.33%;
+        	  //text-align:center;
+        	}
+        }
+        a{
+          display:block;
+          line-height:1em;
+        }
+      }
+    }
+    .rating-box{
+      width:15%;
+      min-height:4.8em;
+      height:100%;
+      float:right;
+      .post-rating{
+        float:right;
+      }
+    }
+  }
+}

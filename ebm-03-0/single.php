@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-<h2>This is a ‘Page’ template.</h2>
+<h2>This is a generic 'single' template.</h2>
 
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 
 <div class="main-content clearfix">
 
@@ -11,9 +11,9 @@
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'content', 'page' ); ?>
+					<?php //get_template_part( 'content', 'page' ); ?>
 
-					<?php comments_template( '', true ); ?>
+					<?php //comments_template( '', true ); ?>
 
 				<?php endwhile; // end of the loop. ?>
 
@@ -22,5 +22,5 @@
 		
 </div><!-- .main-content -->
 		
-<?php get_sidebar("secondary"); ?>
+<?php //get_sidebar("secondary"); ?>
 <?php get_footer(); ?>

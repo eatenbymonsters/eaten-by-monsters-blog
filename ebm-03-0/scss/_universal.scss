@@ -2,6 +2,9 @@
 *, *:before, *:after{
   @include box-sizing(border-box);
 }
+em, p em{
+  font-style:italic;
+}
 pre{
   margin:1em;
   padding: 0 .5em;

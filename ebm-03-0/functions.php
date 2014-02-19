@@ -24,29 +24,29 @@ Contents
 */
 
 // 01. No Self Ping
-  function no_self_ping( &$links ) {
-  	$home = get_option( 'home' );
-  	foreach ( $links as $l => $link )
-  		if ( 0 === strpos( $link, $home ) )
-  			unset($links[$l]);
-  }
-  add_action( 'pre_ping', 'no_self_ping' );
+function no_self_ping( &$links ) {
+	$home = get_option( 'home' );
+	foreach ( $links as $l => $link )
+		if ( 0 === strpos( $link, $home ) )
+			unset($links[$l]);
+}
+add_action( 'pre_ping', 'no_self_ping' );
 
 // 02. Excerpt Length
-  function custom_excerpt_length( $length ) {
-  	return 20;
-  }
-  add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+function custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 // 03. Allow "rel" Links
-  function allow_rel() {
-  	global $allowedtags;
-  	$allowedtags['a']['rel'] = array ();
-  }
-  add_action( 'wp_loaded', 'allow_rel' );
+function allow_rel() {
+	global $allowedtags;
+	$allowedtags['a']['rel'] = array ();
+}
+add_action( 'wp_loaded', 'allow_rel' );
 
 // 04. Add RSS links to <head> section
-  automatic_feed_links();
+add_theme_support( 'automatic-feed-links' );
 
 // 05. Declare Woocommerce Support
   /*
@@ -113,10 +113,10 @@ Contents
 
 // 14. featured image support
   add_theme_support( 'post-thumbnails' );
-  add_image_size( $name, $width, $height, $crop );
-  if ( function_exists( 'add_image_size' ) ) { 
-  	add_image_size( 'cover', 300, 300, false );
-  }
+  //add_image_size( $name, $width, $height, $crop );
+  //if ( function_exists( 'add_image_size' ) ) { 
+  //	add_image_size( 'cover', 300, 300, false );
+  //}
   
 // 15. strip width and height from featured images
   add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );

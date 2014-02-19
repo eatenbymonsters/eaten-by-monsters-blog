@@ -1,6 +1,14 @@
 // Compass Imports //
 @import "compass/css3";
 
+// Wordpress Image layout rules
+img.alignright {float:right; margin:0 0 1em 1em}
+img.alignleft {float:left; margin:0 1em 1em 0}
+img.aligncenter {display: block; margin-left: auto; margin-right: auto}
+.alignright {float:right; }
+.alignleft {float:left; }
+.aligncenter {display: block; margin-left: auto; margin-right: auto}
+
 // CSS Reset //
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -120,13 +128,15 @@ body {
 // These selection rule sets have to be separate.
 // Customize the background color to match your design.
 ::-moz-selection {
-	background:#b3d4fc;
+	background:$secondary;//#b3d4fc;
 	text-shadow:none;
 }
 ::selection {
-	background:#b3d4fc;
+	background:$secondary;//#b3d4fc;
 	text-shadow:none;
 }
+a::-moz-selection{color:$cream;}
+a::selection{color:$cream;}
 // A better looking default horizontal rule
 hr {
 	display:block;

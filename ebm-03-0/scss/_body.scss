@@ -2,11 +2,18 @@
 // 02 Main Featured Loop
 // 03. Home Post
 
+// 01. Body
+body{
+  min-width:$minWidth;
+  max-width:$maxWidth;
+  margin:0 auto;
+  padding:.5em;
+}
+
 // 01. Main Content
 .main-content{
-  //background:blue;
-  //float:left;
-  width:50%;
+  width:100%;
+  max-width:$minWidth;
   margin:0 auto;
 }
 
@@ -15,5 +22,3 @@
   //float:left;
   //width:20%;
 }
-
-// 03. Home Post

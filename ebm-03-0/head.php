@@ -36,6 +36,7 @@
 
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/raw/favicon.png" />
 	
 	<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2.min.js"></script>
 	

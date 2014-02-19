@@ -13,22 +13,19 @@
       $featured_posts->the_post();
   ?>
   
-    <!-- Shown if there is a featured post: -->
-    <!--
-    <div class="featured-post" style="background-image: url(
-      <?php
-        $postheadimg = get_post_meta($post->ID, 'post-head-img', true);
-        if ($postheadimg) {
-          echo get_post_meta($post->ID, 'post-head-img', true);
-  	    }else{ ?>
-		      http://eatenbymonsters.com/wp-content/uploads/2013/12/default-thumb-small.png
-		  <?php } ?>
-		)">
-		-->
-		
-		<div class="featured-post">
-		  <h3><?php the_title(); ?></h3>	
-    </div><!-- .featured-post -->
+		<?php
+		$featuredImg = "http://eatenbymonsters.com/wp-content/uploads/2013/12/default-thumb-small.png";
+		$theFeaturedImg = get_post_meta($post->ID, 'featured-header', true);
+		if ($theFeaturedImg){
+		  $featuredImg = $theFeaturedImg;
+		}
+		?>
+		<a href="<?php the_permalink(); ?>" class="featured-post" style="background:url(<?php echo $featuredImg; ?>) center;background-size:cover;">
+		  <div class="featured-post-meta">
+		    <h3><?php the_title(); ?></h3>
+  		  <?php the_excerpt(); ?>
+		  </div><!-- .featured-post-meta -->
+    </a><!-- .featured-post -->
 
   <?php
     endwhile;

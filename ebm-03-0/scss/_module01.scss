@@ -27,7 +27,7 @@
     color:$cream;
     text-align:center;
     line-height:1em;
-    padding:2px 0 0 1px;
+    padding:2px 0 0 0;
     cursor:pointer;
     &:before{
       font-family:$icons;
@@ -45,7 +45,7 @@
 
 // Selectors
 .slider-selectors{
-  border-bottom:dotted $black .14em;
+  //border-bottom:dotted $black .14em;
   padding:.22em 0 .22em 0;
   position:relative;
   z-index:2;
