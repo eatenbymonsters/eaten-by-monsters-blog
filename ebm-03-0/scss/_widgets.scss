@@ -108,7 +108,9 @@ a.christmas-link{
 // 05. Related Posts
 .yarpp-related h3{
 	font-size:2em;
+	font-style:italic;
 	border-bottom:$black solid 1px;
+  padding:.5em 0 0 0;
 }
 .related-posts{
   width:100%;
@@ -214,7 +216,7 @@ a.christmas-link{
     textarea{
       display:block;
       margin:0;
-      padding:.5em 0 0 .3em;
+      padding:.5em 2px 0 .3em;
       width:100%;
       font-size:1em;
       line-height:1.2em;
