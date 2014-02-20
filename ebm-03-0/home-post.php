@@ -80,7 +80,7 @@
   
   <?php if ( has_post_thumbnail() ) { ?>
     <a class="home-post-image" href="<?php the_permalink(); ?>">
-      <?php the_post_thumbnail(); ?>
+      <?php the_post_thumbnail('thumbnail'); ?>
       <?php /* <img src="<?php echo get_template_directory_uri(); ?>/img/build/coverPlaceholder.png" alt="Oops, there's no cover image!"> */ ?>
     </a><!--home-post-image-->
   <?php } ?>

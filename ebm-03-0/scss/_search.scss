@@ -60,7 +60,8 @@
       @include placeholder{
         color:$secondary;
         font-family:$body;
-        font-weight:bold;
+        //font-weight:bold;
+        opacity:1;
       }
     }
     &[type=submit]{

@@ -23,29 +23,39 @@
 			</h4><!-- .title -->
 			
 			<div class="related-post-meta">
-				<?php $meta_band = get_post_meta($post->ID, 'band-name', true); if ($meta_band) {?>
-				<p class="label">band name</p>
-				<p class="meta"><?php echo $meta_band;?></p>
-				<?php }?>
-				<?php $meta_release = get_post_meta($post->ID, 'release-name', true); if ($meta_release) {?>
-				<p class="label">release name</p>
-				<p class="meta"><?php echo $meta_release;?></p>
-				<?php }?>
-			</div><!-- .rate-post-meta -->
+				<?php $meta_band = get_post_meta($post->ID, 'band-name', true);
+				      $meta_release = get_post_meta($post->ID, 'release-name', true);
+				      $related_rating = get_post_meta($post->ID, 'rating', true);
+				  if ($meta_band || $meta_release){
+				    if ($meta_band) {?>
+				    <p class="label">band name</p>
+				    <p class="meta"><?php echo $meta_band;?></p>
+				    <?php }?>
+				    <?php if ($meta_release) {?>
+				    <p class="label">release name</p>
+				    <p class="meta"><?php echo $meta_release;?></p>
+				    <?php }
+				  } else {
+				    the_excerpt();
+				  } ?>
+			</div><!-- .related-post-meta -->
 			
-			<div class="related-post-meta">
-				<span class="post-rating"><?php echo get_post_meta($post->ID, 'rating', true);?></span>
-			</div><!-- .post-rating -->
+			<?php if ($related_rating) {?>
+			  <div class="related-post-meta">
+				  <span class="post-rating"><?php echo $related_rating;?></span>
+			  </div><!-- .post-rating -->
+			<?php } ?>
 			
 			<div class="related-post-meta related-post-image">
 				<a href="<?php the_permalink(); ?>">
 					<?php if ( has_post_thumbnail() ) {
 						the_post_thumbnail('thumbnail');
 					} else {?>
-						<img title="post-logo" alt="default post logo" src="/img/build/default-thumb-small.png">
+						<img title="post-logo wp-post-image" alt="default post logo" src="<?php echo get_template_directory_uri(); ?>/img/build/default-thumb-small.png">
 					<?php }?>
 				</a>
 			</div><!-- .rate-post-image -->
+			
 		</div><!-- .rate-post -->
 	<?php endwhile; ?>
 

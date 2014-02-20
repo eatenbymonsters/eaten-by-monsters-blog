@@ -4,6 +4,7 @@
 // 03. Yoast SEO Breadcrumbs
 // 04. Modular Meta Styles
 // 05. Related Posts
+// 06. Comment Form etc.
 
 // 01. Seasonal
 .seasonal{
@@ -114,11 +115,12 @@ a.christmas-link{
   //background:yellow;
 }
 .related-post{
-	width:48%;
+	width:49%;
 	float:left;
 	border-top:$black dotted 2px;
 	border-bottom:$black solid .66em;
-	margin:1em 2% 0 0;
+	margin:1em 1% 0 0;
+	&:nth-of-type(2){margin:1em 0 0 1%;}
 	padding:.5em 0 0 0;
 	h4{
 	  font-size:1.5em;
@@ -130,6 +132,12 @@ a.christmas-link{
 	.related-post-meta{
 	  width:33.33%;
 	  float:left;
+	  p{
+	    line-height:1em;
+	  }
+	  .label{
+	    font-size:.8em;
+	  }
 	  .meta{
 	    color:$primary;
 	    font-family:$display;
@@ -142,42 +150,162 @@ a.christmas-link{
 	}
 	.related-post-image{
   	float:right;
-  	min-height:4em;
+  	//min-height:4em;
   	overflow:hidden;
-  	background:blue;
+  	//background:blue;
+  	img{
+  	  width:100%;
+  	}
+  	.wp-post-image{
+  	  width:100%;
+  	}
   }
 }
-/*
-.related-post-meta{
-	width:33%;
-	float:left;
-	color:#333;
-}
-.related-post-meta p{
-	font-size:16px;
-	line-height:20px;
-	padding:0px;
+
+// 06. Comment Form etc.
+.comments{
+	margin-top:2em;
+	h4{
+	  font-style:italic;
+	  border-bottom:$black solid .22em;
+	}
+	li{
+	  border-bottom:$black dotted 2px;
+  	p{
+  	  margin:1em;
+  	}
+	  &.pingback{
+  	  color:$grey;
+  	  a{color:$grey;
+  	    &:hover{color:$secondary;}}
+  	}
+  	&.comment{
+  	  padding:1em 0 0 0;
+  	  footer{
+    	  font-family:$display;
+    	  .comment-author{
+      	  font-size:2em;
+      	  line-height:1em;
+      	  font-style:italic;
+      	  text-transform:capitalize;
+      	}
+      	.comment-meta{
+      	  font-style:italic;
+      	  font-family:$body;
+      	  //width:30%;
+      	}
+    	}
+    	.comment-edit-link{
+      	display:inline;
+      	float:left;
+      	font-family:$caps;
+      	text-transform:lowercase;
+      	margin:0 .5em 0 0;
+      }
+  	}
+	}
+	.comment-respond{
+	  h3{
+	    
+	  }
+	  .required{
+    	color:$secondary;
+    }
+    textarea{
+      display:block;
+      margin:0;
+      padding:.5em 0 0 .3em;
+      width:100%;
+      font-size:1em;
+      line-height:1.2em;
+      //border:$primary solid 2px;
+      border:none;
+      border-bottom:none;
+      border-top:$black solid .3em;
+      background:white;
+      box-shadow:inset $primary 2px 0 0 0,inset $primary -2px 0 0 0;
+      @include placeholder{
+        color:$secondary;
+        font-family:$body;
+        opacity:1;
+      }
+    }
+    #comment-submit{
+      @include button($primary);
+      width:100%;
+      padding:.2em 0;
+      font-size:1.2em;
+      letter-spacing:.05em;
+      border-bottom:$black solid .66em;
+    }
+	}
 }
 
-.related-meta{
-	color:#7FBBC8;
-	font-family:"ltc-bodoni-175", "bodoni", "didot", serif;
+/*
+#respond label{
+	font-size:1em;
+}
+#respond input{
+	font-size:1em;
+	padding:.4em;
+	margin-top:.5em;
+}
+#respond label{
+	//width:200px;
+	text-align:right;
+}
+#respond form p{
+	margin:1em 0 0 0;
+}
+p.comment-form-comment{
+	margin:1em 0 0 0;
+	padding:0;
+	//-webkit-margin-before: 0px;
+	//-webkit-margin-after: 0px;
+	//-webkit-margin-start: 0px;
+	//-webkit-margin-end: 0px;
+}
+textarea#comment{
+	border:none;
+	border-top:$black solid .22em;
+	padding:1em;
+	margin:.4em 0 0 0;
+	width:100%;//600px;
+	font-size:1em;
+	appearance:none;
+	//-webkit-border-radius:0; 
+	border-radius:0;
+}
+#respond .form-submit{
+	border-bottom:$black solid 1em;
+	padding:0;
+	margin:0 0 1em 0;
+}
+#respond input#comment-submit{
+	font-size:1em;
+}
+#comment-submit{
+	font-family:$display;
 	font-style:italic;
-	font-size:18px;
+	letter-spacing:.1em;
+	text-transform:lowercase;
+	background-color:$primary;
+	padding:.2em 1em;
+	width:100%;
+	border:none;
+	clear:both;
+	color:$cream;
+	cursor:pointer;
+	display:block;//inline-block;
+	margin:0;
+	padding:0;
+	text-align:center;
+	text-decoration:none;
+	transition:background .4s ease;	
+	appearance:none;
+	border-radius:0;
+	&:hover{
+  	background:$secondary;
+  }
 }
-.related-post .post-rating{
-	margin-top:10px;
-}
-.related-post-image{
-	float:right;
-	margin-bottom:3px;
-	min-height:100px;
-}
-.related-excerpt{
-	height:100px;
-	overflow:hidden;
-}
-.related-excerpt p{
-	line-height:20px;
-}
-*/
+//*/

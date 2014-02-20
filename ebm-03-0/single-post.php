@@ -105,7 +105,7 @@
   		      } else if ($amazon){ echo $amazon;
   		      }
   		    ?>"><?php }
-  		  	  the_post_thumbnail('cover'); 
+  		  	  the_post_thumbnail('medium'); 
   		  	if ($amazon_com || $amazon_uk || $amazon) { ?></a><?php } ?>
   		  </div><!-- .release-cover -->
   		<?php } ?>
@@ -139,6 +139,12 @@
 	</nav>
 	
 	<?php related_posts();?>
+	
+	<?php
+		// If comments are open or we have at least one comment, load up the comment template
+		if ( comments_open() || '0' != get_comments_number() )
+			comments_template( '', true );
+	?>
 	
 <?php endwhile; // end of the loop. ?>
 </div><!-- .main-content -->
