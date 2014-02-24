@@ -315,13 +315,27 @@ textarea#comment{
 
 // 07. Tag Cloud
 .band-cloud{
+  padding:3em 0 2px 0;
+  border-bottom:$black solid .66em;
+  h4{
+    font-size:2em;
+    line-height:1em;
+    font-style:italic;
+    text-align:right;
+    border-bottom:$black solid .22em;
+  }
   text-transform:capitalize;
   a{
-    display:block;
-    float:left;
     line-height:1em;
-    padding:.2em .1em;
+    padding:2px 6px;
     @include button($primary);
-    margin:.1em;
+    margin-top:2px;
+    &.band-tags-link{
+      text-transform:none;
+      background:$black;
+      font-size:1.2em;
+      padding:.2em;
+      &:hover{background:$secondary;}
+    }
   }
 }

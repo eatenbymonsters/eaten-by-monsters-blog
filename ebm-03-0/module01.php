@@ -1,6 +1,6 @@
 <div class="module01">
   <ul class="slider-selectors clearfix">
-    <li class="slider-selector selector-one active"><a>Latest Article</a></li>
+    <li class="slider-selector selector-one active"><a>Top<br/>Story</a></li>
     <li class="slider-selector selector-two"><a>Yearly Top Tens</a></li>
     <li class="slider-selector selector-three"><a>Never Miss a Post&hellip;</a></li>
   </ul><!-- .slider-selectors -->

@@ -22,6 +22,7 @@ This is the directory for the third iteration of Eaten by Monsters' custom theme
 
 * featured posts/articles tagged "featured"
 * pagenavi plugin settings
+* clean up tags to only include band names
 
 ---
 
