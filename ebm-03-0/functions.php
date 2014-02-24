@@ -20,6 +20,7 @@
 // 19. Exclude from main loop
 // 20. Use first image in post when no Featured Image is set
 // 21. Comments Template
+// 22. Band/Tag Cloud tooltip
 
 // 01. No Self Ping
 function no_self_ping( &$links ) {
@@ -234,5 +235,10 @@ if ( ! function_exists( 'ebm_comment' ) ) :
   	endswitch;
   }
 endif; // ends check for ebm_comment()
+
+// 22. Band/Tag Cloud tooltip
+function ebm_topic_count_text( $count ) {
+	return sprintf( _n('%s topic', '%s mentions', $count), number_format_i18n( $count ) );
+}
 
 ?>

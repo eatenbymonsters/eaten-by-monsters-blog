@@ -5,6 +5,7 @@
 // 04. Modular Meta Styles
 // 05. Related Posts
 // 06. Comment Form etc.
+// 07. Tag Cloud
 
 // 01. Seasonal
 .seasonal{
@@ -311,3 +312,16 @@ textarea#comment{
   }
 }
 //*/
+
+// 07. Tag Cloud
+.band-cloud{
+  text-transform:capitalize;
+  a{
+    display:block;
+    float:left;
+    line-height:1em;
+    padding:.2em .1em;
+    @include button($primary);
+    margin:.1em;
+  }
+}

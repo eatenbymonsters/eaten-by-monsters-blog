@@ -45,6 +45,6 @@ if(is_home() && 1 == $paged ):
 
 </div><!-- .main-content -->
 
-<?php //get_template_part('module02'); ?>
+<?php get_template_part('module02'); ?>
 
 <?php get_footer(); ?>

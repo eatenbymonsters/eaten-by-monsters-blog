@@ -22,3 +22,17 @@ This is the directory for the third iteration of Eaten by Monsters' custom theme
 
 * featured posts/articles tagged "featured"
 * pagenavi plugin settings
+
+---
+
+## Task List
+
+* Implement Google search
+* style/markup search results
+* style/markup archive pages
+* yearly top 10 display
+* top ten slide
+* subscribe slide
+* top-rated albums
+* band array
+* tag pages
