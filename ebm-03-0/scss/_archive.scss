@@ -1,0 +1,33 @@
+// Archive Page Styles
+.archive{
+  width:100%;
+  // Faux columns
+  $columnOneThree:lighten($grey, 10%);
+  background:linear-gradient(to right, $columnOneThree 33.33%, $cream 33.33%, $cream 66.66%, $columnOneThree 66.66%);
+  h1{
+    font-size:3em;
+    line-height:1em;
+    font-style:italic;
+    border-bottom:$black solid .22em;
+    padding:.5em 0 0 0;
+  }
+  a{
+    display:block;
+    width:33.33%;
+    float:left;
+    color:$black;
+    &:hover{color:$secondary;}
+    &:nth-of-type(3n+4){clear:both;}
+  }
+  article{
+    padding:1em .5em;
+    h2{
+      font-size:2em;
+      border-bottom:$black solid 1px;
+    }
+    p{
+      padding:0 0 .5em 0;
+      border-bottom:$black solid .66em;
+    }
+  }
+}

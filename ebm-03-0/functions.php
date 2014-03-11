@@ -21,6 +21,7 @@
 // 20. Use first image in post when no Featured Image is set
 // 21. Comments Template
 // 22. Band/Tag Cloud tooltip
+// 23. Posts Per Page in archive
 
 // 01. No Self Ping
 function no_self_ping( &$links ) {
@@ -241,4 +242,16 @@ function ebm_topic_count_text( $count ) {
 	return sprintf( _n('%s topic', '%s mentions', $count), number_format_i18n( $count ) );
 }
 
+// 23. Posts Per Page in archive
+function limit_posts_per_archive_page() {
+	if ( is_tag() ){
+	  $limit = 9;
+	//} elseif ( is_category() ){ // use this example to extend functionality if needed
+	//  $limit = 3;
+	} else {
+	  $limit = get_option('posts_per_page');
+	}
+	set_query_var('posts_per_archive_page', $limit);
+}
+add_filter('pre_get_posts', 'limit_posts_per_archive_page');
 ?>
