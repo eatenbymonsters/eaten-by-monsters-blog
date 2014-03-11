@@ -20,14 +20,16 @@
 		} ?>
 	</h1>
 	
-	<div class="pagenavi-box top clearfix">
-    <?php if(function_exists('wp_pagenavi')) {
-      wp_pagenavi();
-    } else { ?>
-      <div class="prev-posts fallback"><?php previous_posts_link( '« Newer Entries' ); ?></div>
-      <div class="next-posts fallback"><?php next_posts_link('Older Entries »', 0); ?></div>
-    <?php } ?>
-  </div><!-- .pagenavi-top -->
+	<?php if ( is_paged()) { ?>
+	  <div class="pagenavi-box top clearfix">
+      <?php if(function_exists('wp_pagenavi')) {
+        wp_pagenavi();
+      } else { ?>
+        <div class="prev-posts fallback"><?php previous_posts_link( '« Newer Entries' ); ?></div>
+        <div class="next-posts fallback"><?php next_posts_link('Older Entries »', 0); ?></div>
+      <?php } ?>
+    </div><!-- .pagenavi-top -->
+  <?php } ?>
   
   <div class="main-content archive clearfix">
     

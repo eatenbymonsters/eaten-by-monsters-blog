@@ -208,8 +208,12 @@ a.christmas-link{
   	}
 	}
 	.comment-respond{
-	  h3{
-	    
+	  label{
+	    display:inline-block;
+	    width:5em;
+	  }
+	  input{
+	    border:$primary solid 1px;
 	  }
 	  .required{
     	color:$secondary;
