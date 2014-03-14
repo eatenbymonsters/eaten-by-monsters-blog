@@ -10,18 +10,26 @@ body{
   padding:.5em;
 }
 
+
+.main-wrapper{
+  //width:100%;
+  position:relative;
+}
 // 01. Main Content
 .main-content{
-  //width:100%;
+  width:80%;
   //max-width:$minWidth;
-  //margin:0 auto;
-  
-  width:$minWidth;
-  float:right;
+  margin:0 auto;
+
+  //width:$minWidth;
+  //float:right;
 }
 
 // 02. Module Two
 .main-featured-loop{
-  float:left;
-  width:25em;//20%;
+  //float:left;
+  position:absolute;
+  top:0;
+  left:0;
+  width:10%//25em;//20%;
 }

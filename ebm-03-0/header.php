@@ -15,7 +15,7 @@
     ;}?>
   	<h4 class="blog-tagline">Music Blog</h4>
   </div><!-- .site-title -->
-  
+
   <ul class="header-links clearfix">
     <li class="header-link link-unfocus">
       <a class="rss-link" title="Soundcloud" href="https://soundcloud.com/eaten-by-monsters-blog/">
@@ -43,4 +43,10 @@
 	<?php get_search_form(); ?>
 </div><!-- .header-nav -->
 
+<?php
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+if(is_home() && 1 == $paged ){
+  //get_template_part('seasonal');
+  get_template_part('module01');
+}?>
 <div class="main-wrapper clearfix">
