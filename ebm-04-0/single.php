@@ -5,14 +5,6 @@
     while (have_posts()) : the_post(); ?>
       
       <?php
-      // If there are one or more 'band' tags added to the post,
-      // save them into the $bandNames array:
-      $terms = get_terms('band');
-      if ( !empty( $terms ) && !is_wp_error( $terms ) ){
-        foreach ( $terms as $term ) {
-          $bandNames[] = $term->name;
-        }
-      }
 
       // The AFC values:
       $post_releaseName = get_field('release-name');
@@ -24,16 +16,25 @@
       ?>
 
       <h1>
-        <?php if ( $bandNames ) {// If the post has "band" info stored as tags... 
-          $count = count( $bandNames );// How many bands are attached to the post?
+        <?php
+        $terms = get_terms('band');
+        if ( !empty( $terms ) && !is_wp_error( $terms ) ) {// If the post has "band" info stored as tags... 
+          $count = count( $terms );// How many bands are attached to the post?
           $i=0;
           $bandList = '';// Set up a string to contain the band names.
-          foreach ( $bandNames as $bandName ){// Add each band name to the string:
+          $bandListLinks = '';// Set up a string to contain the band names and a link to the band's archive page.
+          foreach ( $terms as $term ){// Add each band name to the string:
             $i++;
             if ( $count != $i ) {
-              $bandList .= $bandName.', ';// Add a comma and a space to every band name...
+              // With a link:
+              $bandListLinks .= '<a href="/bands/'.$term->slug.'">'.$term->name.'</a>, ';// Add a link, a comma and a space to every band name...
+              // Without a link:
+              $bandList .= $term->name.', ';// Add a comma and a space to every band name...
             } else {
-              $bandList .= $bandName.' ';// ...but don't add a comma if it's the last band name in the string
+              // With a link:
+              $bandListLinks .= '<a href="/bands/'.$term->slug.'">'.$term->name.'</a> ';// ...but don't add a comma if it's the last band name in the string
+              // Without a link:
+              $bandList .= $term->name.' ';// ...but don't add a comma if it's the last band name in the string
             }
           } ?>
           <?= $bandList; // Print the list of bands ?>
@@ -42,6 +43,7 @@
         <?php } else {
           the_title();
         } ?>
+
       </h1>
       
       <h2>
@@ -67,11 +69,6 @@
             <span class="metaValue"><?php echo $post_rating; ?></span>
           <?php } ?>
         </div>
-        <div class="postMeta">
-          <?php if( $post_website ){ ?>
-            <span class="metaLabel"><a href="<?php echo $post_website; ?>">Band Website</a></span>
-          <?php } ?>
-        </div>
       </div>
       
       <div class="mainContent postMainContent">
@@ -93,15 +90,12 @@
           <?php } ?>
         </div>
         <div class="postMeta">
-          <?php if( $post_rating ){ ?>
-            <span class="metaLabel">Rating:</span>
-            <span class="metaValue"><?php echo $post_rating; ?></span>
-          <?php } ?>
-        </div>
-        <div class="postMeta">
           <?php if( $post_website ){ ?>
             <span class="metaLabel"><a href="<?php echo $post_website; ?>">Band Website</a></span>
           <?php } ?>
+        </div>
+        <div class="postMeta">
+          <span class="metaValue">Read more reviews of <?= $bandListLinks; // Print the list of bands ?></span>
         </div>
       </div>
 

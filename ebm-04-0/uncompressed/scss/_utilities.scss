@@ -55,10 +55,11 @@ html{box-sizing:border-box;}
 
 // 04. Selection Colours
 ::selection{
-  color:$white;
-  background:$black;
-}
-a::selection{
   color:$black;
-  background:$white;
+  background:$secondary;
+}
+a::selection,
+a strong::selection{
+  color:$black;
+  background:lighten($primary,10%);
 }

@@ -19,9 +19,8 @@ body{
 }
 
 a{
-	color:inherit;//$primary;
+	color:inherit;
 	text-decoration:none;
-	//background:lighten($primary,25%);
 	//background:linear-gradient(top,$cream 84%,$primary 84%,$primary 90%,$cream 90%);
 	box-shadow:
 		inset $cream 0 1.35em 0,
@@ -31,8 +30,6 @@ a{
 		box-shadow:
 			inset $cream 0 .3em 0,
 			inset $primary 0 1.45em 0;
-		//background:$secondary;
-		//background:linear-gradient(top,$cream 20%,$primary 20%,$primary 90%,$cream 90%);
 	}
 	&:active{
 		box-shadow:
@@ -81,6 +78,7 @@ p{
 }
 
 .postMainContent{
+	//overflow:hidden;
 	p:first-of-type{
 		font-size:1.4em;
 		line-height:1.4;

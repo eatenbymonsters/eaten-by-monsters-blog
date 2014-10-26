@@ -1,0 +1,2 @@
+// FitVids
+$('.mainContent').fitVids();
