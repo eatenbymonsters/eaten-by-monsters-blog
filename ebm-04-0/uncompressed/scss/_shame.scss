@@ -1,0 +1,102 @@
+.contentWrapper{
+	width:90%;
+	max-width:30em;
+	margin:0 auto;
+	padding:2em 0;
+}
+
+body{
+	font-family:$body;
+	background:$cream;
+	color:$black;
+	font-size:1.2em;
+	line-height:1.8;
+}
+
+*{
+	transition:color,background,box-shadow;
+	transition-duration:.3s;
+}
+
+a{
+	color:inherit;//$primary;
+	text-decoration:none;
+	//background:lighten($primary,25%);
+	//background:linear-gradient(top,$cream 84%,$primary 84%,$primary 90%,$cream 90%);
+	box-shadow:
+		inset $cream 0 1.35em 0,
+		inset lighten($primary,10%) 0 1.45em 0;
+	&:hover{
+		color:$black;
+		box-shadow:
+			inset $cream 0 .3em 0,
+			inset $primary 0 1.45em 0;
+		//background:$secondary;
+		//background:linear-gradient(top,$cream 20%,$primary 20%,$primary 90%,$cream 90%);
+	}
+	&:active{
+		box-shadow:
+			inset $cream 0 .2em 0,
+			inset $secondary 0 1.45em 0;
+	}
+}
+
+strong{
+	font-family:$caps;
+	text-transform:lowercase;
+}
+
+h1{
+	font-size:2em;
+	//padding-bottom:1em;
+	font-family:$display;
+	line-height:1.2;
+}
+
+h2{
+	font-size:1.4em;
+	font-family:$display;
+	font-style:italic;
+	//padding-bottom:1em;
+}
+
+p{
+	padding-bottom:1em;
+}
+
+.postMetaWrapper{
+	border-bottom:.4em solid $black;
+	padding-bottom:0;
+	margin-bottom:1em;
+	p{padding:0;}
+}
+.postMeta{
+	padding:0 0 .8em 0;
+	line-height:1;
+	color:$grey;
+	.metaLabel{
+		font-family:$caps;
+		text-transform:lowercase;
+	}
+}
+
+.postMainContent{
+	p:first-of-type{
+		font-size:1.4em;
+		line-height:1.4;
+		padding-bottom:(1em / 1.4);
+	}
+}
+
+@include breakpoint(downThree){
+	body{
+		font-size:1em;
+		line-height:1.6;
+	}
+	p{padding-bottom:2em;}
+	.postMainContent p:first-of-type{
+		font-size:1em;
+		line-height:1.8;
+		padding-bottom:1em;
+	}
+}

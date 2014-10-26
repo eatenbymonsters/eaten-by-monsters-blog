@@ -67,9 +67,9 @@ get_header(); ?>
 
 				</div><!-- #content -->
 </div><!-- #primary -->
-			
+
 <?php //get_sidebar(); ?>
-		
+
 <?php //include("sidebar_two.php"); ?>
-		
+
 <?php get_footer(); ?>
