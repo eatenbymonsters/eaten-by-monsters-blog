@@ -1,1 +1,0 @@
-<h1>The bands archive</h1>

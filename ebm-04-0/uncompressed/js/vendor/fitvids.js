@@ -8,7 +8,7 @@
 * Released under the WTFPL license - http://sam.zoy.org/wtfpl/
 *
 */
-console.log('FitVids is loaded');
+//console.log('FitVids is loaded');
 
 (function( $ ){
 

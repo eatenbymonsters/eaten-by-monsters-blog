@@ -1,6 +1,10 @@
-<?php include"header.php"; ?>
+<?php 
+/*
+YARPP Template: Single
+Description: The EBM YARPP template.
+*/
+?>
 
-<h1>Hello world!</h1>
 <?php if (have_posts()):?>
 	<div class="relatedPosts">
 		<?php while (have_posts()) : the_post(); ?>
@@ -10,5 +14,3 @@
 <?php else:
 	// If there are no recent posts, show nothing
 endif; ?>
-
-<?php include"footer.php"; ?>
