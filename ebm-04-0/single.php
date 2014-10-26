@@ -9,7 +9,6 @@
       // The AFC values:
       $post_releaseName = get_field('release-name');
       $post_format = get_field('format');
-      $post_recordLabel = get_field('record-label');
       $post_rating = get_field('rating');
       $post_miniDescription = get_field('mini-description');
       $post_website = get_field('website');
@@ -77,19 +76,25 @@
               foreach ( $labelNames as $labelName ){// Add each label name to the string:
                 $i++;
                 if ( $count != $i ) {
-                  // With a link:
-                  $labelListLinks .= '<a href="/labels/'.$labelName->slug.'">'.$labelName->name.'</a>, ';// Add a link, a comma and a space to every label name...
-                  // Without a link:
-                  $labelList .= $labelName->name.', ';// Add a comma and a space to every label name...
+                  if ( $labelName->count > 1 ){
+                    // With a link:
+                    $labelList .= '<a class="labelLink" title="See more from the '.$labelName->name.' record label" href="/labels/'.$labelName->slug.'">'.$labelName->name.'</a>, ';// Add a link, a comma and a space to every label name...
+                  } else {
+                    // Without a link:
+                    $labelList .= $labelName->name.', ';// Add a comma and a space to every label name...
+                  }
                 } else {
-                  // With a link:
-                  $labelListLinks .= '<a href="/labels/'.$labelName->slug.'">'.$labelName->name.'</a> ';// ...but don't add a comma if it's the last label name in the string
-                  // Without a link:
-                  $labelList .= $labelName->name.' ';// ...but don't add a comma if it's the last label name in the string
+                  if ( $labelName->count > 1 ){
+                    // With a link:
+                    $labelList .= '<a class="labelLink" title="See more from the '.$labelName->name.' record label" href="/labels/'.$labelName->slug.'">'.$labelName->name.'</a> ';// ...but don't add a comma if it's the last label name in the string
+                  } else {
+                    // Without a link:
+                    $labelList .= $labelName->name.' ';// ...but don't add a comma if it's the last label name in the string
+                  }
                 }
               } ?>
               <span class="metaLabel">Record Label:</span>
-              <span class="metaValue"><a href=""><?php echo $labelListLinks; ?></a></span>
+              <span class="metaValue"><?php echo $labelList; ?></span>
             <?php } ?>
           </div>
         </div>
@@ -112,9 +117,9 @@
           <?php } ?>
         </div>
         <div class="postMeta">
-          <?php if( $post_recordLabel ){ ?>
+          <?php if( isset( $labelList ) ){ ?>
             <span class="metaLabel">Record Label:</span>
-            <span class="metaValue"><?php echo $post_recordLabel; ?></span>
+            <span class="metaValue"><?php echo $labelList; ?></span>
           <?php } ?>
         </div>
         <div class="postMeta">
