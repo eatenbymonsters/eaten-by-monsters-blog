@@ -1,0 +1,61 @@
+// Images
+// Opening Paragraph
+// Post Meta
+
+// Images
+.postMainContent img{
+  width:100%;
+  height:auto;
+}
+
+// Opening Paragraph
+.postMainContent p:first-of-type{
+  font-size:1.4em;
+  line-height:1.4;
+  padding-bottom:(1em / 1.4);
+}
+
+@include breakpoint(downThree){
+  .postMainContent p:first-of-type{
+    font-size:1em;
+    line-height:1.6;
+    padding-bottom:1em;
+  }
+}
+
+// Post Meta
+.postMetaWrapper{
+  font-size:.8em;
+  position:relative;
+  min-height:4.5em;
+  border-bottom:.4em solid $black;
+  padding:.3em 4.5em 0 0;
+  margin:0 0 1em 0;
+  p{padding:0;}
+  .postRating{
+    position:absolute;
+    top:0;
+    right:0;
+  }
+}
+.postMetaKeyValue{
+  width:100%;
+  float:left;
+  border-top:.1em solid $black;
+  padding-top:.2em;
+  margin-top:.5em;
+  margin-bottom:.2em;
+}
+.postMeta{
+  padding:0;
+  line-height:1.4;
+  //color:$grey;
+  width:80%;
+  float:left;
+  .metaLabel{
+    font-family:$caps;
+    text-transform:lowercase;
+    display:inline-block;
+    min-width:8em;
+  }
+}

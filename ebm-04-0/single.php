@@ -12,6 +12,7 @@
       $post_rating = get_field('rating');
       $post_miniDescription = get_field('mini-description');
       $post_website = get_field('website');
+      $post_label = get_field('record-label');
       // Get the URL of the post's featured image (large size):
       $imageURL = wp_get_attachment_url( get_post_thumbnail_id($post->ID,'large'));
       ?>
@@ -95,6 +96,9 @@
               } ?>
               <span class="metaLabel">Record Label:</span>
               <span class="metaValue"><?php echo $labelList; ?></span>
+            <?php } elseif ( isset( $post_label ) ) { ?>
+              <span class="metaLabel">Record Label:</span>
+              <span class="metaValue"><?php echo $post_label; ?></span>
             <?php } ?>
           </div>
         </div>
@@ -105,7 +109,7 @@
       <div class="mainContent postMainContent">
         <?php the_excerpt(); ?>
         <!--div class="postImg" style="background-image:url('<?= $imageURL; ?>');"></div-->
-        <?php the_post_thumbnail('large'); ?>
+        <?php if ( has_post_thumbnail() ) { the_post_thumbnail('large'); } ?>
         <?php the_content(); ?>
       </div>
 

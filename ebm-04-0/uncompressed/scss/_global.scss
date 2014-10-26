@@ -1,0 +1,76 @@
+// Body Styles
+// Generic Links
+// Misc Typography
+
+// Body Styles
+body{
+  font-family:$body;
+  background:$cream;
+  color:$black;
+  font-size:1.2em;
+  line-height:1.8;
+  @include breakpoint(downThree){
+    font-size:1em;
+    line-height:1.6;
+  }
+}
+
+*{
+  transition:color,background,box-shadow;
+  transition-duration:.2s;
+}
+
+// Generic Links
+a{
+  color:inherit;
+  text-decoration:none;
+  //background:linear-gradient(top,$cream 84%,$primary 84%,$primary 90%,$cream 90%);
+  box-shadow:
+    inset $cream 0 1.35em 0,
+    inset lighten($primary,10%) 0 1.45em 0;
+  &:hover{
+    color:$black;
+    box-shadow:
+      inset $cream 0 .3em 0,
+      inset $primary 0 1.45em 0;
+  }
+  &:active{
+    box-shadow:
+      inset $cream 0 .3em 0,
+      inset $secondary 0 1.45em 0;
+  }
+}
+// Link State Fallback
+.no-boxshadow a{
+  color:$primary;
+  &:hover{color:$secondary;}
+  &:active{background:$primary;}
+}
+
+// Misc Typography
+h1{
+  font-size:2em;
+  //padding-bottom:1em;
+  font-family:$display;
+  line-height:1.2;
+  padding:0;
+}
+
+h2{
+  font-size:1.4em;
+  font-family:$display;
+  font-style:italic;
+  padding:0;
+  line-height:1.3;
+  padding-top:.2em;
+  //padding-bottom:1em;
+}
+
+p{
+  padding-bottom:2em;
+  @include breakpoint(downThree){padding-bottom:2em;}
+}
+strong{
+  font-family:$caps;
+  text-transform:lowercase;
+}
