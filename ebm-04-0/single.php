@@ -7,6 +7,7 @@
       <?php
 
       // The AFC values:
+      $post_bandName = get_field('band-name');
       $post_releaseName = get_field('release-name');
       $post_format = get_field('format');
       $post_rating = get_field('rating');
@@ -16,64 +17,29 @@
       // Get the URL of the post's featured image (large size):
       //$imageURL = wp_get_attachment_url( get_post_thumbnail_id($post->ID,'large'));
 
-      // Get the band names associated with the post
-      $bandNames = wp_get_post_terms($post->ID,'band');
-      if ( !empty( $bandNames ) && !is_wp_error( $bandNames ) ) {// If the post has "band" info stored as tags... 
-        $count = count( $bandNames );// How many bands are attached to the post?
-        $i=0;
-        $bandList = '';// Set up a string to contain the band names.
-        foreach ( $bandNames as $bandName ){// Add each band name to the string:
-          $i++;
-          if ( $count != $i ) {
-            if ( $bandName->count > 1 ){// With a link:
-              $bandList .= '<a href="/bands/'.$bandName->slug.'">'.$bandName->name.'</a> &amp; ';// Add a link, a comma and a space to every band name...
-            } else {// Without a link:
-              $bandList .= $bandName->name.' &amp; ';// Add a comma and a space to every band name...
-            }
-          } else {
-            if ( $bandName->count > 1 ){// With a link:
-              $bandList .= '<a href="/bands/'.$bandName->slug.'">'.$bandName->name.'</a>';// ...but don't add a comma if it's the last band name in the string
-            } else {// Without a link:
-              $bandList .= $bandName->name.'';// ...but don't add a comma if it's the last band name in the string
-            }
-          }
-        }
-      }
 
-      // Get the Record Labels associated with the post
+      // If the post has "band" and "label" info stored as tags, pull out their objects
+      $bandNames = wp_get_post_terms($post->ID,'band');
       $labelNames = wp_get_post_terms($post->ID,'label');
-      //var_dump($terms);
-      if ( !empty( $labelNames ) && !is_wp_error( $labelNames ) ) {// If the post has "record label" info stored as tags... 
-        $count = count( $labelNames );// How many labels are attached to the post?
-        $i=0;
-        $labelList = '';// Set up a string to contain the label names.
-        $labelListLinks = '';// Set up a string to contain the label names and a link to the label's archive page.
-        foreach ( $labelNames as $labelName ){// Add each label name to the string:
-          $i++;
-          if ( $count != $i ) {
-            if ( $labelName->count > 1 ){
-              // With a link:
-              $labelList .= '<a class="labelLink" title="See more from the '.$labelName->name.' record label" href="/labels/'.$labelName->slug.'">'.$labelName->name.'</a>, ';// Add a link, a comma and a space to every label name...
-            } else {
-              // Without a link:
-              $labelList .= $labelName->name.', ';// Add a comma and a space to every label name...
-            }
-          } else {
-            if ( $labelName->count > 1 ){
-              // With a link:
-              $labelList .= '<a class="labelLink" title="See more from the '.$labelName->name.' record label" href="/labels/'.$labelName->slug.'">'.$labelName->name.'</a>';// ...but don't add a comma if it's the last label name in the string
-            } else {
-              // Without a link:
-              $labelList .= $labelName->name.'';// ...but don't add a comma if it's the last label name in the string
-            }
-          }
-        }
-        ?>
+      // Run those objects through a function to output a usable list (as an array)
+      $bandList = getPostTaxData($bandNames);
+      $labelList = getPostTaxData($labelNames);
+      
+      ?>
 
       <h1>
-          <?= $bandList; // Print the list of bands ?>
-          <span class="titleDivider">&mdash;</span>
-          <span class="releaseName"><?= ' '.$post_releaseName; ?></span>
+          <?php if ($bandList && isset($post_releaseName)) {
+            $count = count($bandList);
+            foreach ($bandList as $key => $band) {
+              if ($band['link']) {
+                echo "<a href='/band/{$band['slug']}'>{$band['name']}</a>";
+              } else {
+                echo $band['name'];
+              }
+              echo ($key-1 != $count ? ', ' : '');
+            } ?>
+          <span class="titleDivider"> &mdash; </span>
+          <span class="releaseName"><?= $post_releaseName; ?></span>
         <?php } else {
           the_title();
         } ?>
@@ -142,10 +108,23 @@
             </div>
           <?php } ?>
 
-          <?php if( isset( $bandList ) ) { ?>
+          <?php if ($bandList || $post_bandName) { ?>
             <div class="postMeta">
               <span class="metaLabel">Artist:</span>
-              <span class="metaValue"><?php echo $bandList; ?></span>
+              <span class="metaValue">
+                <?php if ($bandList) {
+
+                  foreach ($bandList as $band) {
+                    if ($band['link']) {
+                      echo "<a href='/band/{$band['slug']}'>{$band['name']}</a>";
+                    } else {
+                      echo $band['name'];
+                    }
+                  }
+                } else {
+                  echo $post_bandName;
+                } ?>
+              </span>
             </div>
           <?php } ?>
           

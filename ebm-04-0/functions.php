@@ -1,4 +1,7 @@
 <?php
+
+include "functions-custom.php";
+
 // 01. Declare Custom Menus
 // 02. No Self Ping
 // 03. Excerpt Length
