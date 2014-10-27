@@ -1,0 +1,15 @@
+.buttonReset{
+	display:block;
+	border:0;
+	background:none;
+	color:inherit;
+	padding:0;
+	margin:0;
+	text-align:center;
+}
+
+.aReset{
+  box-shadow:none;
+  &:hover{box-shadow:none;}
+  &:active{box-shadow:none;}
+}

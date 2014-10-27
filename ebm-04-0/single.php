@@ -31,14 +31,14 @@
             $i++;
             if ( $count != $i ) {
               // With a link:
-              $bandListLinks .= '<a href="/bands/'.$bandName->slug.'">'.$bandName->name.'</a>, ';// Add a link, a comma and a space to every band name...
+              $bandListLinks .= '<a href="/bands/'.$bandName->slug.'">'.$bandName->name.'</a> &amp; ';// Add a link, a comma and a space to every band name...
               // Without a link:
-              $bandList .= $bandName->name.', ';// Add a comma and a space to every band name...
+              $bandList .= $bandName->name.' &amp; ';// Add a comma and a space to every band name...
             } else {
               // With a link:
-              $bandListLinks .= '<a href="/bands/'.$bandName->slug.'">'.$bandName->name.'</a> ';// ...but don't add a comma if it's the last band name in the string
+              $bandListLinks .= '<a href="/bands/'.$bandName->slug.'">'.$bandName->name.'</a>';// ...but don't add a comma if it's the last band name in the string
               // Without a link:
-              $bandList .= $bandName->name.' ';// ...but don't add a comma if it's the last band name in the string
+              $bandList .= $bandName->name.'';// ...but don't add a comma if it's the last band name in the string
             }
           } ?>
           <?= $bandList; // Print the list of bands ?>
@@ -51,7 +51,7 @@
       </h1>
       
       <h2>
-        <?php if( $post_miniDescription ){ echo $post_miniDescription; } ?>
+        <?php if( isset( $post_miniDescription ) ){ echo $post_miniDescription; } ?>
       </h2>
       
       <div class="postMetaWrapper clearfix">
@@ -87,10 +87,10 @@
                 } else {
                   if ( $labelName->count > 1 ){
                     // With a link:
-                    $labelList .= '<a class="labelLink" title="See more from the '.$labelName->name.' record label" href="/labels/'.$labelName->slug.'">'.$labelName->name.'</a> ';// ...but don't add a comma if it's the last label name in the string
+                    $labelList .= '<a class="labelLink" title="See more from the '.$labelName->name.' record label" href="/labels/'.$labelName->slug.'">'.$labelName->name.'</a>';// ...but don't add a comma if it's the last label name in the string
                   } else {
                     // Without a link:
-                    $labelList .= $labelName->name.' ';// ...but don't add a comma if it's the last label name in the string
+                    $labelList .= $labelName->name.'';// ...but don't add a comma if it's the last label name in the string
                   }
                 }
               } ?>
@@ -111,32 +111,33 @@
         <!--div class="postImg" style="background-image:url('<?= $imageURL; ?>');"></div-->
         <?php if ( has_post_thumbnail() ) { the_post_thumbnail('large'); } ?>
         <?php the_content(); ?>
+
+        <div class="postFooter clearfix">
+          <div class="postMeta">
+            <?php if( $post_format ){ ?>
+              <span class="metaLabel">Release Format:</span>
+              <span class="metaValue"><?php echo $post_format; ?></span>
+            <?php } ?>
+          </div>
+          <div class="postMeta">
+            <?php if( isset( $labelList ) ){ ?>
+              <span class="metaLabel">Record Label:</span>
+              <span class="metaValue"><?php echo $labelList; ?></span>
+            <?php } ?>
+          </div>
+          <div class="postMeta">
+            <?php if ( isset($bandListLinks) ) { ?>
+              <span class="metaValue">Read more reviews of <?= $bandListLinks; // Print the list of bands ?></span>
+            <?php } ?>
+          </div>
+        </div>
+
+        <?php if( $post_website ){ ?>
+          <a href="<?php echo $post_website; ?>" class="button">visit <?= $bandList; ?>&#8217;s website</a>
+        <?php } ?>
+        
       </div>
 
-      <div class="postFooter clearfix">
-        <div class="postMeta">
-          <?php if( $post_format ){ ?>
-            <span class="metaLabel">Release Format:</span>
-            <span class="metaValue"><?php echo $post_format; ?></span>
-          <?php } ?>
-        </div>
-        <div class="postMeta">
-          <?php if( isset( $labelList ) ){ ?>
-            <span class="metaLabel">Record Label:</span>
-            <span class="metaValue"><?php echo $labelList; ?></span>
-          <?php } ?>
-        </div>
-        <div class="postMeta">
-          <?php if( $post_website ){ ?>
-            <span class="metaLabel"><a href="<?php echo $post_website; ?>">Band Website</a></span>
-          <?php } ?>
-        </div>
-        <div class="postMeta">
-          <?php if ( isset($bandListLinks) ) { ?>
-            <span class="metaValue">Read more reviews of <?= $bandListLinks; // Print the list of bands ?></span>
-          <?php } ?>
-        </div>
-      </div>
 
       <?php related_posts();?>
 

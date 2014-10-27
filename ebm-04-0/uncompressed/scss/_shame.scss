@@ -4,6 +4,12 @@
   margin:0 auto;
   padding:2em 0;
   overflow:hidden;
+  border-bottom:.8em solid $black;
+}
+.postMainContent{
+  padding-bottom:1em;
+  border-bottom:.8em solid $black;
+  margin-bottom:1em;
 }
 
 .postRating{
@@ -16,4 +22,18 @@
   color:$cream;
   font-family:$display;
   padding-top:1.5em;
+}
+
+.button{
+  @extend .buttonReset;
+  @extend .aReset;
+  background:$primary;
+  color:$cream;
+  font-family:$display;
+  font-style:italic;
+  border-bottom:.4em solid $black;
+  &:hover{
+    background:$secondary;
+    color:$cream;
+  }
 }
