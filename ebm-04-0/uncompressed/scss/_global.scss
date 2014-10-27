@@ -33,12 +33,12 @@ a{
   &:hover{
     color:$black;
     box-shadow:
-      inset $cream 0 .3em 0,
+      inset $cream 0 .4em 0,
       inset $primary 0 1.5em 0;
   }
   &:active{
     box-shadow:
-      inset $cream 0 .3em 0,
+      inset $cream 0 .4em 0,
       inset $secondary 0 1.5em 0;
   }
 }
