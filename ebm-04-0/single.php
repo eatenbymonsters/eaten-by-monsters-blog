@@ -36,7 +36,7 @@
               } else {
                 echo $band['name'];
               }
-              echo ($key-1 != $count ? ', ' : '');
+              echo ($key+1 != $count ? ', ' : '');
             } ?>
           <span class="titleDivider"> &mdash; </span>
           <span class="releaseName"><?= $post_releaseName; ?></span>
@@ -62,14 +62,19 @@
             </div>
           <?php } ?>
 
-          <?php if ( isset($labelList) || isset($post_label) ) { ?>
+          <?php if ($labelList && isset($post_releaseName)) { ?>
             <div class="postMeta">
               <span class="metaLabel">Record Label:</span>
               <span class="metaValue">
-                <?php if ( isset($labelList) ) {
-                  echo $labelList;
-                } elseif ( isset($post_label) ) {
-                  echo $post_label;
+
+                <?php $count = count($labelList);
+                foreach ($labelList as $key => $label) {
+                  if ($label['link']) {
+                    echo "<a href='/label/{$label['slug']}' title='See more from the {$label['name']} record label'>{$label['name']}</a>";
+                  } else {
+                    echo $label['name'];
+                  }
+                  echo ($key+1 != $count ? ', ' : '');
                 } ?>
               </span>
             </div>
@@ -95,34 +100,37 @@
             </div>
           <?php } ?>
 
-          <?php if ( isset($labelList) || isset($post_label) ) { ?>
+          <?php if ($labelList && isset($post_releaseName)) { ?>
             <div class="postMeta">
               <span class="metaLabel">Record Label:</span>
               <span class="metaValue">
-                <?php if ( isset($labelList) ) {
-                  echo $labelList;
-                } elseif ( isset($post_label) ) {
-                  echo $post_label;
+
+                <?php $count = count($labelList);
+                foreach ($labelList as $key => $label) {
+                  if ($label['link']) {
+                    echo "<a href='/label/{$label['slug']}'>{$label['name']}</a>";
+                  } else {
+                    echo $label['name'];
+                  }
+                  echo ($key+1 != $count ? ', ' : '');
                 } ?>
               </span>
             </div>
           <?php } ?>
 
-          <?php if ($bandList || $post_bandName) { ?>
+          <?php if ($bandList && isset($post_releaseName)) { ?>
             <div class="postMeta">
               <span class="metaLabel">Artist:</span>
               <span class="metaValue">
-                <?php if ($bandList) {
 
-                  foreach ($bandList as $band) {
-                    if ($band['link']) {
-                      echo "<a href='/band/{$band['slug']}'>{$band['name']}</a>";
-                    } else {
-                      echo $band['name'];
-                    }
+                <?php $count = count($bandList);
+                foreach ($bandList as $key => $band) {
+                  if ($band['link']) {
+                    echo "<a href='/band/{$band['slug']}'>{$band['name']}</a>";
+                  } else {
+                    echo $band['name'];
                   }
-                } else {
-                  echo $post_bandName;
+                  echo ($key+1 != $count ? ', ' : '');
                 } ?>
               </span>
             </div>
