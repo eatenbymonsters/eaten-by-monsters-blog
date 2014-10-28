@@ -31,11 +31,7 @@
           <?php if ($bandList && isset($post_releaseName)) {
             $count = count($bandList);
             foreach ($bandList as $key => $band) {
-              if ($band['link']) {
-                echo "<a href='/band/{$band['slug']}'>{$band['name']}</a>";
-              } else {
-                echo $band['name'];
-              }
+              echo $band['name'];
               echo ($key+1 != $count ? ', ' : '');
             } ?>
           <span class="titleDivider"> &mdash; </span>
