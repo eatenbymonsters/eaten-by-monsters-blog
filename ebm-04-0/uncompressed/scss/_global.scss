@@ -3,6 +3,9 @@
 // Misc Typography
 
 // Body Styles
+html{
+  min-width:280px;
+}
 body{
   font-family:$body;
   background:$cream;
