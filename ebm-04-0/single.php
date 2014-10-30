@@ -27,8 +27,7 @@
       
       ?>
 
-      <h1>
-          <?php if ($bandList && isset($post_releaseName)) {
+      <h1><?php if ($bandList && isset($post_releaseName)) {
             $count = count($bandList);
             foreach ($bandList as $key => $band) {
               echo $band['name'];
@@ -38,13 +37,9 @@
           <span class="releaseName"><?= $post_releaseName; ?></span>
         <?php } else {
           the_title();
-        } ?>
-
-      </h1>
+        } ?></h1>
       
-      <h2>
-        <?php if( isset( $post_miniDescription ) ){ echo $post_miniDescription; } ?>
-      </h2>
+      <h2><?php if( isset( $post_miniDescription ) ){ echo $post_miniDescription; } ?></h2>
       
       <div class="postMetaWrapper clearfix">
         
