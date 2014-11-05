@@ -39,41 +39,48 @@
           the_title();
         } ?></h1>
       
-      <h2><?php if( isset( $post_miniDescription ) ){ echo $post_miniDescription; } ?></h2>
+      <?php if( isset( $post_miniDescription ) ){ ?>
+        <h2><?= $post_miniDescription; ?></h2>
+      <?php } ?>
+
       
-      <div class="postMetaWrapper clearfix">
-        
-        <div class="postMetaKeyValue clearfix">
+      <div class="postMetaWrapper clearfix <?php if ($post_format || $labelList) {echo 'full'; } ?> ">
+
+        <?php if ($post_format || $labelList): ?>
           
+          <div class="postMetaKeyValue clearfix">
+            
+            <?php if( $post_format ){ ?>
+              <div class="postMeta">
+                <span class="metaLabel">Release Format:</span>
+                <span class="metaValue"><?php echo $post_format; ?></span>
+              </div>
+            <?php } ?>
 
-          <?php if( $post_format ){ ?>
-            <div class="postMeta">
-              <span class="metaLabel">Release Format:</span>
-              <span class="metaValue"><?php echo $post_format; ?></span>
-            </div>
-          <?php } ?>
+            <?php if ($labelList && isset($post_releaseName)) { ?>
+              <div class="postMeta">
+                <span class="metaLabel">Record Label:</span>
+                <span class="metaValue">
 
-          <?php if ($labelList && isset($post_releaseName)) { ?>
-            <div class="postMeta">
-              <span class="metaLabel">Record Label:</span>
-              <span class="metaValue">
+                  <?php $count = count($labelList);
+                  foreach ($labelList as $key => $label) {
+                    if ($label['link']) {
+                      echo "<a href='/label/{$label['slug']}' title='See more from the {$label['name']} record label'>{$label['name']}</a>";
+                    } else {
+                      echo $label['name'];
+                    }
+                    echo ($key+1 != $count ? ', ' : '');
+                  } ?>
+                </span>
+              </div>
+            <?php } ?>
 
-                <?php $count = count($labelList);
-                foreach ($labelList as $key => $label) {
-                  if ($label['link']) {
-                    echo "<a href='/label/{$label['slug']}' title='See more from the {$label['name']} record label'>{$label['name']}</a>";
-                  } else {
-                    echo $label['name'];
-                  }
-                  echo ($key+1 != $count ? ', ' : '');
-                } ?>
-              </span>
-            </div>
-          <?php } ?>
+          </div>
+        <?php endif ?>
 
-        </div>
-
-        <div class="postRating"><?php echo $post_rating; ?></div>
+        <?php if ($post_rating): ?>
+          <div class="postRating"><?php echo $post_rating; ?></div>
+        <?php endif ?>
       </div>
       
       <div class="mainContent postMainContent">
