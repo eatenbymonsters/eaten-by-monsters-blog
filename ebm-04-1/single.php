@@ -1,75 +1,162 @@
-<?php include"header.php"; ?>
+<?php get_header(); ?>
 
-<section class="singlePost">
-  
-  <?php $blog_page_id = get_option('page_for_posts'); ?>
-    <!--h1><a href="<?=get_site_url();?>/blog">
-    <?php echo get_page($blog_page_id)->post_title; ?>
-    </a></h1-->
+<div class="contentWrapper">
+    <?php if (have_posts()) :
+        while (have_posts()) : the_post(); ?>
+            
+            <?php
 
-  <section class="mainContent blog">
-    <?php 
-        $page_for_posts_id = get_option('page_for_posts');
-        setup_postdata(get_page($page_for_posts_id));
-    ?>
-      <!--div class="feedPageContent">
-        <?php the_content(); ?>
-      </div-->
+            // The AFC values:
+            $post_bandName = get_field('band-name');
+            $post_releaseName = get_field('release-name');
+            $post_format = get_field('format');
+            $post_rating = get_field('rating');
+            $post_miniDescription = get_field('mini-description');
+            $post_website = get_field('website');
+            $post_label = get_field('record-label');
+            // Get the URL of the post's featured image (large size):
+            //$imageURL = wp_get_attachment_url( get_post_thumbnail_id($post->ID,'large'));
 
-    <?php rewind_posts(); ?>
 
-    <aside class="blogSearchFilterSingle clearfix">
-      <div class="breadcrumbs"><a href="<?=get_site_url();?>/blog/">Back to the blog</a></div>
-      <!--div class="searchPosts">
-        <h3>Search Our Blog</h3>
-        <form action="<?php bloginfo('url'); ?>" method="get">
-          <input type="text" name="s">
-          <input type="submit" value="Search">
-        </form>
-      </div-->
-    </aside>
-    <?php //get_template_part('module','filterPosts');
+            // If the post has "band" and "label" info stored as tags, pull out their objects
+            $bandNames = wp_get_post_terms($post->ID,'band');
+            $labelNames = wp_get_post_terms($post->ID,'label');
+            // Run those objects through a function to output a usable list (as an array)
+            $bandList = getPostTaxData($bandNames);
+            $labelList = getPostTaxData($labelNames);
+            
+            ?>
 
-    if(is_home() && 1 != $paged ){
-      get_template_part('module','navigation');
-    }
+            <h1><?php if ($bandList && isset($post_releaseName)) {
+                        $count = count($bandList);
+                        foreach ($bandList as $key => $band) {
+                            echo $band['name'];
+                            echo ($key+1 != $count ? ', ' : '');
+                        } ?>
+                    <span class="titleDivider"> &mdash; </span>
+                    <span class="releaseName"><?= $post_releaseName; ?></span>
+                <?php } else {
+                    the_title();
+                } ?></h1>
+            
+            <?php if( isset( $post_miniDescription ) ){ ?>
+                <h2><?= $post_miniDescription; ?></h2>
+            <?php } ?>
 
-    if (have_posts()) :
-      while (have_posts()) : the_post();
-        // The Main Content Lives Here
-        get_template_part('content','single');
-  
-        get_template_part('module','navigation');
-        
-      endwhile;
+            
+            <div class="postMetaWrapper clearfix <?php if ($post_format || $labelList) {echo 'full'; } ?> ">
 
-      $prev_link = get_previous_post_link('%link');
-      $next_link = get_next_post_link('%link');
+                <?php if ($post_format || $labelList): ?>
+                    
+                    <div class="postMetaKeyValue clearfix">
+                        
+                        <?php if( $post_format ){ ?>
+                            <div class="postMeta">
+                                <span class="metaLabel">Release Format:</span>
+                                <span class="metaValue"><?php echo $post_format; ?></span>
+                            </div>
+                        <?php } ?>
 
-      if($prev_link || $next_link){ ?>
-        <div class="postNavigation clearfix">
-          <?php if($prev_link){ ?>
-            <div class="prev">
-              <h4>Previous Post</h4>
-              <?php echo $prev_link; ?>
+                        <?php if ($labelList && isset($post_releaseName)) { ?>
+                            <div class="postMeta">
+                                <span class="metaLabel">Record Label:</span>
+                                <span class="metaValue">
+
+                                    <?php $count = count($labelList);
+                                    foreach ($labelList as $key => $label) {
+                                        if ($label['link']) {
+                                            echo "<a href='/label/{$label['slug']}' title='See more from the {$label['name']} record label'>{$label['name']}</a>";
+                                        } else {
+                                            echo $label['name'];
+                                        }
+                                        echo ($key+1 != $count ? ', ' : '');
+                                    } ?>
+                                </span>
+                            </div>
+                        <?php } ?>
+
+                    </div>
+                <?php endif ?>
+
+                <?php if ($post_rating): ?>
+                    <div class="postRating"><?php echo $post_rating; ?></div>
+                <?php endif ?>
             </div>
-          <?php } ?>
-          <?php if($next_link){ ?>
-            <div class="next">
-              <h4>Next Post</h4>
-              <?php echo $next_link; ?>
+            
+            <div class="mainContent postMainContent">
+                <?php the_excerpt(); ?>
+                <!--div class="postImg" style="background-image:url('<?= $imageURL; ?>');"></div-->
+                <?php if ( has_post_thumbnail() ) { the_post_thumbnail('large'); } ?>
+                <?php the_content(); ?>
+
+                <div class="postFooter clearfix">
+                    
+                    <?php if( $post_format ) { ?>
+                        <div class="postMeta">
+                            <span class="metaLabel">Release Format:</span>
+                            <span class="metaValue"><?php echo $post_format; ?></span>
+                        </div>
+                    <?php } ?>
+
+                    <?php if ($labelList && isset($post_releaseName)) { ?>
+                        <div class="postMeta">
+                            <span class="metaLabel">Record Label:</span>
+                            <span class="metaValue">
+
+                                <?php $count = count($labelList);
+                                foreach ($labelList as $key => $label) {
+                                    if ($label['link']) {
+                                        echo "<a href='/label/{$label['slug']}'>{$label['name']}</a>";
+                                    } else {
+                                        echo $label['name'];
+                                    }
+                                    echo ($key+1 != $count ? ', ' : '');
+                                } ?>
+                            </span>
+                        </div>
+                    <?php } ?>
+
+                    <?php if ($bandList && isset($post_releaseName)) { ?>
+                        <div class="postMeta">
+                            <span class="metaLabel">Artist:</span>
+                            <span class="metaValue">
+
+                                <?php $count = count($bandList);
+                                foreach ($bandList as $key => $band) {
+                                    if ($band['link']) {
+                                        echo "<a href='/band/{$band['slug']}'>{$band['name']}</a>";
+                                    } else {
+                                        echo $band['name'];
+                                    }
+                                    echo ($key+1 != $count ? ', ' : '');
+                                } ?>
+                            </span>
+                        </div>
+                    <?php } ?>
+                    
+                </div>
+
+                <?php
+                // Print a button for every band name
+                /* if ( !empty( $bandNames ) && !is_wp_error( $bandNames ) ) {// If the post has "band" info stored as tags...
+                    foreach ( $bandNames as $bandName ){
+                        echo '<a href="/bands/'.$bandName->slug.'" class="button">see all '.$bandName->name.' reviews</a>';  
+                    }
+                } */
+
+                // Print a button link to band's website
+                /* if( $post_website ){ ?>
+                    <a href="<?php echo $post_website; ?>" class="button">visit <?= $bandList; ?>&#8217;s website</a>
+                <?php } */
+                ?>
+
             </div>
-          <?php } ?>
-        </div>
-      <?php } ?>
-    
-    <?php else : ?>
 
-      <h2>Not Found</h2>
 
-    <?php endif; ?>
-  </section>
+            <?php related_posts();?>
 
-</section>
+        <?php endwhile;
+    endif; ?>
+</div>
 
-<?php include"footer.php"; ?>
+<?php get_footer(); ?>

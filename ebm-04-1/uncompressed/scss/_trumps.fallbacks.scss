@@ -1,0 +1,6 @@
+// Link State Fallback
+.no-boxshadow a{
+  color:$primary;
+  &:hover{color:$secondary;}
+  &:active{background:$primary;}
+}

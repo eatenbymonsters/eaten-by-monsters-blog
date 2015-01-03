@@ -8,6 +8,6 @@ html{box-sizing:border-box;}
 html{
   font-size:100%;
   // Adjust for every project
-  //@include breakpoint(upTwo){font-size:110%;}
+  @include bp(u2){font-size:110%;}
   //@include breakpoint(downTwo){font-size:90%;}
 }

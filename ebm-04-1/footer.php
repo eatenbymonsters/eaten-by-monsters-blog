@@ -1,4 +1,4 @@
-<footer class="regularFooter">
+<!-- <footer class="regularFooter">
 
   <div class="footerMenu clearfix">
     <?php wp_nav_menu(array(
@@ -7,7 +7,7 @@
     )); ?>
   </div>
 
-</footer>
+</footer> -->
 
 <?php include"foot.php"; ?>
 </body>

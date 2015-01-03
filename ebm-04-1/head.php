@@ -33,7 +33,14 @@
 
     <!-- Modernizr -->
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/static/modernizr-2.6.2.min.js"></script>
+    
+    <!-- Google+ -->
+    <link href="https://plus.google.com/111879829548102811838" rel="publisher" />
 
+    <!-- Typekit JS -->
+    <script type="text/javascript" src="//use.typekit.net/inm7kme.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
     <!-- Polyfills -->
         <!-- Media Queries support for older versions of IE etc. -->
         <!-- HTML5 shiv -->

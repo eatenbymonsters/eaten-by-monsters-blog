@@ -1,0 +1,15 @@
+.button{
+  @extend .buttonReset;
+  @extend .aReset;
+  background:$primary;
+  color:$cream;
+  font-family:$display;
+  font-style:italic;
+  border-bottom:.4em solid $black;
+  margin:.5em 0;
+  &:hover{
+    background:$secondary;
+    color:$cream;
+  }
+  &:active{color:$black;}
+}
