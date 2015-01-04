@@ -32,11 +32,13 @@
 // * Box-sizing
 // * Global font size
 
-// 05.Objects
+// 05.Atoms
 
-// 06.Components
+// 06.Objects
 
-// 07.Trumps
+// 07.Components
+
+// 08.Trumps
 // * Hiding things visually
 // * Clearfix Class
 
@@ -46,27 +48,36 @@
 @import "settings.colours";
 @import "settings.fonts";
 @import "settings.breakpoints";
+@import "settings.miscVars";
 
 // 02. TOOLS
-@import "tools.placeholders";
+// @import "tools.placeholders";
 @import "tools.mixins";
 @import "tools.buttons";
+@import "tools.generalPlaceholders";
 
 // 03. GENERIC
 //@import 'generic.normalize';
 @import "generic.reset";
+@import "generic.transitions";
 
 // 04. BASE
 @import "base.generic";
 @import "base.theme";
 
-// 05. OBJECTS
-@import "objects.postContent";
+// 05. ATOMS
+@import "atom.postRating";
+@import "atom.postImg";
 
-// 06. COMPONENTS
+// 06. OBJECTS
+@import "objects.postHeader";
+@import "objects.postContent";
+@import "objects.list";
+
+// 07. COMPONENTS
 @import "components.layout";
 
-// 07. TRUMPS
+// 08. TRUMPS
 @import "trumps.utilities";
 @import "trumps.fallbacks";
 

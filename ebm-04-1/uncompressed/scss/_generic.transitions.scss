@@ -1,0 +1,4 @@
+*,*:before,*:after{
+  transition:color,background,box-shadow;
+  transition-duration:.2s;
+}

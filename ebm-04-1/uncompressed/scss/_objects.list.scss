@@ -1,0 +1,37 @@
+.list_wrapper{
+	border-bottom:$borderMed;
+}
+
+.list_entry{
+	border-top:$borderThin;
+	padding-top:1em;
+	margin-bottom:1em;
+	.list_heading{
+		font-family:$display;
+		font-size:2em;
+		line-height:1.1;
+		padding-bottom:.25em;
+	}
+	.list_name{
+		font-style:italic;
+	}
+	.list_rank{
+		// display:inline-block;
+		// width:1.2em;
+		// text-align:right;
+		// margin-right:.4em;
+		// margin-left:-1.2em;
+	}
+}
+
+.list_img{
+	@extend %imgBg;
+	width:30%;
+	padding-bottom:30%;
+	margin:0 0 .5em .5em;
+	float:right;
+	@include bp(d3){
+		width:100%;
+		padding-bottom:100%;
+	}
+}

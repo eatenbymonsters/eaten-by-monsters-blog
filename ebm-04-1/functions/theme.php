@@ -16,7 +16,8 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 
 // Excerpt Length
-function custom_excerpt_length( $length ) {
+function custom_excerpt_length( $length )
+{
     return 20;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
@@ -31,7 +32,8 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 // Custom Tags
 // Bands
-function bands_init() {
+function bands_init()
+{
     // create a new taxonomy
     register_taxonomy(
         'band',
@@ -44,7 +46,8 @@ function bands_init() {
 }
 add_action( 'init', 'bands_init' );
 // Record Labels
-function labels_init() {
+function labels_init()
+{
     // create a new taxonomy
     register_taxonomy(
         'label',
@@ -79,3 +82,14 @@ function getPostTaxData($inputs)
     //return false;
   }
 }
+
+// Allow post templates based on categories
+function get_custom_cat_template($single_template)
+{
+    global $post;
+    if ( in_category( 'annual-lists' )) {
+        $single_template = dirname(dirname(__FILE__)).'/single-list.php';
+    }
+    return $single_template;
+}
+add_filter( "single_template", "get_custom_cat_template" ) ;

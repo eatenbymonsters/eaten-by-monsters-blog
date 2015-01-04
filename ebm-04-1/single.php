@@ -27,67 +27,80 @@
             
             ?>
 
-            <h1><?php if ($bandList && isset($post_releaseName)) {
-                        $count = count($bandList);
-                        foreach ($bandList as $key => $band) {
-                            echo $band['name'];
-                            echo ($key+1 != $count ? ', ' : '');
-                        } ?>
-                    <span class="titleDivider"> &mdash; </span>
-                    <span class="releaseName"><?= $post_releaseName; ?></span>
-                <?php } else {
-                    the_title();
-                } ?></h1>
-            
-            <?php if( isset( $post_miniDescription ) ){ ?>
-                <h2><?= $post_miniDescription; ?></h2>
-            <?php } ?>
+            <div class="postHeader">
 
-            
-            <div class="postMetaWrapper clearfix <?php if ($post_format || $labelList) {echo 'full'; } ?> ">
+                <h1><?php if ($bandList && isset($post_releaseName)) {
+                            $count = count($bandList);
+                            foreach ($bandList as $key => $band) {
+                                echo $band['name'];
+                                echo ($key+1 != $count ? ', ' : '');
+                            } ?>
+                        <span class="titleDivider"> &mdash; </span>
+                        <span class="releaseName"><?= $post_releaseName; ?></span>
+                    <?php } else {
+                        the_title();
+                    } ?></h1>
+                
+                <?php if( isset( $post_miniDescription ) ){ ?>
+                    <h2><?= $post_miniDescription; ?></h2>
+                <?php } ?>
 
-                <?php if ($post_format || $labelList): ?>
-                    
-                    <div class="postMetaKeyValue clearfix">
+                
+                <div class="postMetaWrapper clearfix <?php if ($post_format || $labelList) {echo 'full'; } ?> ">
+
+                    <?php if ($post_format || $labelList): ?>
                         
-                        <?php if( $post_format ){ ?>
-                            <div class="postMeta">
-                                <span class="metaLabel">Release Format:</span>
-                                <span class="metaValue"><?php echo $post_format; ?></span>
-                            </div>
-                        <?php } ?>
+                        <div class="postMetaKeyValue clearfix">
+                            
+                            <?php if( $post_format ){ ?>
+                                <div class="postMeta">
+                                    <span class="metaLabel">Release Format:</span>
+                                    <span class="metaValue"><?php echo $post_format; ?></span>
+                                </div>
+                            <?php } ?>
 
-                        <?php if ($labelList && isset($post_releaseName)) { ?>
-                            <div class="postMeta">
-                                <span class="metaLabel">Record Label:</span>
-                                <span class="metaValue">
+                            <?php if ($labelList && isset($post_releaseName)) { ?>
+                                <div class="postMeta">
+                                    <span class="metaLabel">Record Label:</span>
+                                    <span class="metaValue">
 
-                                    <?php $count = count($labelList);
-                                    foreach ($labelList as $key => $label) {
-                                        if ($label['link']) {
-                                            echo "<a href='/label/{$label['slug']}' title='See more from the {$label['name']} record label'>{$label['name']}</a>";
-                                        } else {
-                                            echo $label['name'];
-                                        }
-                                        echo ($key+1 != $count ? ', ' : '');
-                                    } ?>
-                                </span>
-                            </div>
-                        <?php } ?>
+                                        <?php $count = count($labelList);
+                                        foreach ($labelList as $key => $label) {
+                                            if ($label['link']) {
+                                                echo "<a href='/label/{$label['slug']}' title='See more from the {$label['name']} record label'>{$label['name']}</a>";
+                                            } else {
+                                                echo $label['name'];
+                                            }
+                                            echo ($key+1 != $count ? ', ' : '');
+                                        } ?>
+                                    </span>
+                                </div>
+                            <?php } ?>
 
-                    </div>
-                <?php endif ?>
+                        </div>
+                    <?php endif ?>
 
-                <?php if ($post_rating): ?>
-                    <div class="postRating"><?php echo $post_rating; ?></div>
-                <?php endif ?>
+                    <?php if ($post_rating): ?>
+                        <div class="postRating"><?php echo $post_rating; ?></div>
+                    <?php endif ?>
+                </div>
             </div>
-            
+
             <div class="mainContent postMainContent">
-                <?php the_excerpt(); ?>
-                <!--div class="postImg" style="background-image:url('<?= $imageURL; ?>');"></div-->
-                <?php if ( has_post_thumbnail() ) { the_post_thumbnail('large'); } ?>
-                <?php the_content(); ?>
+                <?php 
+
+                if (has_excerpt()) {
+                    the_excerpt();
+                }
+
+                if ( has_post_thumbnail() ) {
+                    $postImg = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'large'); 
+                    $postImgURL = $postImg[0]; ?>
+                    <div class="postImg" style="background-image:url('<?= $postImgURL; ?>');"></div>
+                    <?php
+                }
+
+                the_content(); ?>
 
                 <div class="postFooter clearfix">
                     

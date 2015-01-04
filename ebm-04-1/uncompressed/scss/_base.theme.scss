@@ -11,16 +11,11 @@ body{
   background:$cream;
   color:$black;
   font-size:1.2em;
-  line-height:1.8;
+  line-height:1.6;
   @include bp(d3){
     font-size:1em;
     line-height:1.6;
   }
-}
-
-*,*:before,*:after{
-  transition:color,background,box-shadow;
-  transition-duration:.2s;
 }
 
 // Generic Links
@@ -29,6 +24,7 @@ a{
   display:inline-block;
   text-decoration:none;
   line-height:inherit;
+  margin-right:.2em;
   //background:linear-gradient(top,$cream 84%,$primary 84%,$primary 90%,$cream 90%);
   box-shadow:
     inset $cream 0 1.4em 0,
@@ -66,8 +62,8 @@ h2{
 }
 
 p{
-  padding-bottom:2em;
-  @include bp(d3){padding-bottom:2em;}
+  padding-bottom:1em;
+  // @include bp(d3){padding-bottom:2em;}
 }
 strong{
   font-family:$caps;
